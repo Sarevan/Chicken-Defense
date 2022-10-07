@@ -14,5 +14,10 @@ namespace Core
         {
             game = new Game(allConfigs.LevelsConfig);
         }
+
+        private void Update()
+        {
+         game.Update();
+        }
     }
 }
