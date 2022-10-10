@@ -13,6 +13,7 @@ namespace Core
         private void Start()
         {
             game = new Game(allConfigs.LevelsConfig);
+            
         }
 
         private void Update()
