@@ -14,7 +14,7 @@ namespace Gameplay
         [SerializeField] private float duration = 10; // продолжительность
         [SerializeField] private float timeOneIntervalSpawn = 5; // время одного интервала
         [SerializeField] private int countSpawnEnemiesAtInterval = 2; // число заспавненного противника на интервале
-        [SerializeField] private GameObject prefabsRandomEnemies; // сами противники в рандомном порядке 
+        [SerializeField] private List<GameObject> prefabsRandomEnemies; // сами противники в рандомном порядке 
 
         [SerializeField]
         private int countSpawnRandomEnemies; // противники будут спавниться рандомно с различным интервалом времени
@@ -69,13 +69,14 @@ namespace Gameplay
 
         private void SpawnRandomEnemy()
         {
+            var randomEnemy = prefabsRandomEnemies[Random.Range(0, prefabsRandomEnemies.Count)];
             int countEnemies = countSpawnRandomEnemies + guaranteedSpawnEnemies.Sum(enemiesBox => enemiesBox.Count);
             Vector3 center = spawnPointPosition.position;
             for (int enemy = 0; enemy < countEnemies; enemy++)
             {
                 Vector3 pos = RandomCircle(center, spawnRadius);
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center);
-                Object.Instantiate(prefabsRandomEnemies, pos, rotation);
+                Object.Instantiate(randomEnemy, pos, rotation);
             }
         }
 
