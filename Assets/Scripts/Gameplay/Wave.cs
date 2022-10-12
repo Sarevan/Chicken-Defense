@@ -96,6 +96,9 @@ namespace Gameplay
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center);
                 var enemy = Object.Instantiate(randomEnemy, pos, rotation);
                 enemy.Setup(characterTransform);
+                Vector3 relative = enemy.transform.InverseTransformPoint(characterTransform.position);
+                float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+                enemy.transform.Rotate(0,angle,0);
             }
         }
 

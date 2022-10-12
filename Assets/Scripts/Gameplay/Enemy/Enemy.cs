@@ -18,7 +18,14 @@ namespace Gameplay.Enemy
             float distance = Vector3.Distance(target.position, transform.position);
             
             if (distance <= withinRange)
+            {
+                /*Vector3 direction = target.position - transform.position;*/
+                var transformPosition = transform.position;
                 transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+                
+            }
+
+           
         }
     }
 }

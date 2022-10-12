@@ -11,8 +11,7 @@ namespace Core
     {
         private LevelsConfig levelsConfig;
         private Character character;
-        /*private EnemyMoveToHero enemyMoveToHero;*/
-        
+
 
         private Level level;
 
@@ -62,7 +61,6 @@ namespace Core
             character = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
                 Quaternion.identity, level.transform);
             character.Setup(character.Position);
-            /*enemyMoveToHero = Object.Instantiate();*/
         }
 
         private Wave GetCurrentLevelWave()
@@ -98,11 +96,5 @@ namespace Core
             var result = levelsConfig.LevelsInfo[currentLevel % levelsInfoCount];
             return result.Level;
         }
-
-        /*private EnemyMoveToHero getCurrentEnemyMoveToHero(int enemyMoveToHero)
-        {
-            var 
-            return 
-        }*/
     }
 }

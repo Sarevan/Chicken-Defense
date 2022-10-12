@@ -1,6 +1,4 @@
-﻿using System;
-using Gameplay.Enemy;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gameplay.Hero
 {
@@ -10,8 +8,6 @@ namespace Gameplay.Hero
 
 
       public Vector3 Position => transform.position;
-      /*public Transform Transform => transform;
-      */
 
       public void Setup(Vector3 transform)
       {
