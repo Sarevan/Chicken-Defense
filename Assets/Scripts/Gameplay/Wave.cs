@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Gameplay.Enemy;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -13,14 +14,15 @@ namespace Gameplay
         //level = 30 waves;
         [SerializeField] private float duration = 10; // продолжительность
         [SerializeField] private float timeOneIntervalSpawn = 5; // время одного интервала
-        [SerializeField] private int countSpawnEnemiesAtInterval = 2; // число заспавненного противника на интервале
-        [SerializeField] private List<GameObject> prefabsRandomEnemies; // сами противники в рандомном порядке 
+        [SerializeField] private int countSpawnEnemiesAtInterval = 1; // число заспавненного противника на интервале
+        [SerializeField] private List<Enemy.Enemy> prefabsRandomEnemies; // сами противники в рандомном порядке 
 
         [SerializeField]
         private int countSpawnRandomEnemies; // противники будут спавниться рандомно с различным интервалом времени
 
         [SerializeField]
         private List<GuaranteedSpawnEnemy> guaranteedSpawnEnemies; // противники которые 100% появятся в интервале (Бос)
+
 
         [SerializeField] private float spawnRadius = 0.5f;
         [SerializeField] private Transform spawnPointPosition;
@@ -30,13 +32,15 @@ namespace Gameplay
         private int indexLastItemOfInterval;
         private List<float> scheduledSpawnEnemies;
         private bool isSetup;
+        private Transform characterTransform;
 
         public float Duration => duration;
 
         public bool IsSetup => isSetup;
 
-        public void Setup()
+        public void Setup(Transform characterTransform)
         {
+            this.characterTransform = characterTransform;
             isSetup = true;
             startTime = Time.time;
             ScheduleCreated();
@@ -44,18 +48,31 @@ namespace Gameplay
 
         public void Update()
         {
-            if (indexLastItemOfInterval < scheduledSpawnEnemies.Count && scheduledSpawnEnemies[indexLastItemOfInterval] + startTime <= Time.time  )
+            if (indexLastItemOfInterval < scheduledSpawnEnemies.Count &&
+                scheduledSpawnEnemies[indexLastItemOfInterval] + startTime <= Time.time)
             {
                 indexLastItemOfInterval++;
 
                 SpawnRandomEnemy();
             }
+
+            /*foreach (var guaranteedSpawnEnemy in guaranteedSpawnEnemies)
+            {
+                var count = guaranteedSpawnEnemy.Count;
+                var enemyNumbers = Enumerable.Range(1, count).ToList();
+                var shedule = enemyNumbers.Select(numberEnemy => numberEnemy * guaranteedSpawnEnemy.Interval).ToList();
+            }*/
+
+           //guaranteedSpawnEnemies[0].Interval
+           //if (deltaTimeAtEnemy == prefabsRandomEnemies.)
+           //{
+           //    var guaranteedSpawnRandom = guaranteedSpawnEnemies[Random.Range(0, guaranteedSpawnEnemies.Count)];
+           //    Object.Instantiate(guaranteedSpawnRandom.EnemyPrefab, pos, rotation);
+           //}
         }
 
         public void ScheduleCreated()
         {
-            /*float deltaTimeAtEnemy = duration / countSpawnRandomEnemies;*/
-
             scheduledSpawnEnemies = new List<float>();
 
             var countIntervals = (Duration / timeOneIntervalSpawn);
@@ -69,14 +86,16 @@ namespace Gameplay
 
         private void SpawnRandomEnemy()
         {
+            float deltaTimeAtEnemy = duration / countSpawnRandomEnemies;
             var randomEnemy = prefabsRandomEnemies[Random.Range(0, prefabsRandomEnemies.Count)];
             int countEnemies = countSpawnRandomEnemies + guaranteedSpawnEnemies.Sum(enemiesBox => enemiesBox.Count);
             Vector3 center = spawnPointPosition.position;
-            for (int enemy = 0; enemy < countEnemies; enemy++)
+            for (int i = 0; i < countSpawnEnemiesAtInterval; i++)
             {
                 Vector3 pos = RandomCircle(center, spawnRadius);
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center);
-                Object.Instantiate(randomEnemy, pos, rotation);
+                var enemy = Object.Instantiate(randomEnemy, pos, rotation);
+                enemy.Setup(characterTransform);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Configs;
 using Gameplay;
+using Gameplay.Enemy;
 using Gameplay.Hero;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Core
     {
         private LevelsConfig levelsConfig;
         private Character character;
+        /*private EnemyMoveToHero enemyMoveToHero;*/
+        
 
         private Level level;
 
@@ -42,7 +45,7 @@ namespace Core
             {
                 if (currentWave.IsSetup != true)
                 {
-                    currentWave.Setup();
+                    currentWave.Setup(level.TowerAttackPosition);
                 }
                 currentWave.Update();
             }
@@ -58,6 +61,8 @@ namespace Core
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
             character = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
                 Quaternion.identity, level.transform);
+            character.Setup(character.Position);
+            /*enemyMoveToHero = Object.Instantiate();*/
         }
 
         private Wave GetCurrentLevelWave()
@@ -93,5 +98,11 @@ namespace Core
             var result = levelsConfig.LevelsInfo[currentLevel % levelsInfoCount];
             return result.Level;
         }
+
+        /*private EnemyMoveToHero getCurrentEnemyMoveToHero(int enemyMoveToHero)
+        {
+            var 
+            return 
+        }*/
     }
 }

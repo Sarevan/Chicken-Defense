@@ -1416,6 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3118294153675890160}
   - component: {fileID: 3118294153684955664}
+  - component: {fileID: 6919333720512905959}
   m_Layer: 0
   m_Name: Shade
   m_TagString: Untagged
@@ -1432,7 +1433,7 @@ Transform:
   m_GameObject: {fileID: 3118294153675456976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3118294153675890166}
@@ -1463,6 +1464,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6919333720512905959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118294153675456976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e35a7777272404ca8fa909c6383de55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 4496703272309272618, guid: 16de5b6b526effe45b51e7383384c273, type: 3}
+  withinRange: 1000
+  speed: 0.1
 --- !u!1 &3118294153675456980
 GameObject:
   m_ObjectHideFlags: 0
