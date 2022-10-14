@@ -1,34 +1,41 @@
-﻿using System;
+﻿using Gameplay.Collision;
 using UnityEngine;
 
 namespace Gameplay.Hero
 {
     public class Character : MonoBehaviour
     {
-        [SerializeField] private Transform transform;
-        [SerializeField] private FireZone fireZone;
+        [SerializeField] private Transform character;
+        [SerializeField] private TriggerDetector enemyDetector;
+        private bool isActive;
 
 
-        public Vector3 Position => transform.position;
+        public Vector3 Position => character.position;
 
         public void Setup(Vector3 transform)
         {
-            this.transform.position = transform;
+            this.character.position = transform;
+          
         }
 
         private void OnEnable()
         {
-            fireZone.EnemyOnFireZone += CharacterAttack;
+            enemyDetector.Detected += CharacterAttack;
         }
 
         private void OnDisable()
         {
-            fireZone.EnemyOnFireZone -= CharacterAttack;
+            enemyDetector.Detected -= CharacterAttack;
         }
-
-        private void CharacterAttack()
-      {
-          Debug.Log("Enemy detect successfully ");
-      }
+        
+        private void CharacterAttack(Collider enemy)
+        {
+            isActive = true;
+            var enemyPosition = enemy.transform;
+            
+            Vector3 relative = character.InverseTransformPoint(enemyPosition.position);
+            float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+            character.transform.Rotate(0,angle,0);
+        }
     }
 }

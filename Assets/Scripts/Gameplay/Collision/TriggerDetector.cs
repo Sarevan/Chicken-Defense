@@ -16,5 +16,6 @@ namespace Gameplay.Collision
                 Detected?.Invoke(collider);
             }
         }
+        
     }
 }

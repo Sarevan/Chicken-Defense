@@ -11,10 +11,7 @@ namespace Gameplay
         [SerializeField] private float radius = 1;
         [SerializeField] private SphereCollider sphereCenter;
         [SerializeField] private LineRenderer circleRenderer;
-        [SerializeField] private TriggerDetector enemyDetector;
-
-        public event Action EnemyOnFireZone;
-
+        
         public void Start()
         {
             DrawCircle(steps, radius);
@@ -24,7 +21,6 @@ namespace Gameplay
         public void EnemyDetector()
         {
             sphereCenter.radius = radius;
-            enemyDetector.Detected += EnemyDetectorOnDetected;
         }
 
         public void DrawCircle(int steps, float radius)
@@ -45,14 +41,7 @@ namespace Gameplay
 
                 Vector3 currentPosition = new Vector3(x, enemyDetectorCenter.y, z);
                 circleRenderer.SetPosition(currentStep, currentPosition);
-
-                enemyDetector.Detected -= EnemyDetectorOnDetected;
             }
-        }
-
-        private void EnemyDetectorOnDetected(Collider obj)
-        {
-            EnemyOnFireZone?.Invoke();
         }
     }
 }
