@@ -1,7 +1,8 @@
-﻿using UnityEditor;
+﻿using Gameplay;
+using UnityEditor;
 using UnityEngine;
 
-namespace Gameplay.Hero
+namespace EditorScripts
 {
     [CustomEditor(typeof(FireZone))]
     public class CustomInspector : Editor

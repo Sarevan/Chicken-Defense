@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.Enemy
 {
     [Serializable]
-    public class GuaranteedEnemy
+    public class GuaranteedSpawnEnemy
     {
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private int count;

@@ -12,9 +12,9 @@ namespace Gameplay
     public class Wave
     {
         //level = 30 waves;
-        [SerializeField] private float duration = 10; // продолжительность
-        [SerializeField] private float timeOneIntervalSpawn = 5; // время одного интервала
-        [SerializeField] private int countSpawnEnemiesAtInterval = 1; // число заспавненного противника на интервале
+        [SerializeField] private float duration; // продолжительность
+        [SerializeField] private float timeOneIntervalSpawn; // время одного интервала
+        [SerializeField] private int countSpawnEnemiesAtInterval; // число заспавненного противника на интервале
         [SerializeField] private List<Enemy.Enemy> prefabsRandomEnemies; // сами противники в рандомном порядке 
 
         [SerializeField]
@@ -96,10 +96,16 @@ namespace Gameplay
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center);
                 var enemy = Object.Instantiate(randomEnemy, pos, rotation);
                 enemy.Setup(characterTransform);
-                Vector3 relative = enemy.transform.InverseTransformPoint(characterTransform.position);
-                float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
-                enemy.transform.Rotate(0,angle,0);
+                
+                EnemyLookOnHero(enemy);
             }
+        }
+
+        private void EnemyLookOnHero(Enemy.Enemy enemy)
+        {
+            Vector3 relative = enemy.transform.InverseTransformPoint(characterTransform.position);
+            float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+            enemy.transform.Rotate(0, angle, 0);
         }
 
         private Vector3 RandomCircle(Vector3 center, float radius)

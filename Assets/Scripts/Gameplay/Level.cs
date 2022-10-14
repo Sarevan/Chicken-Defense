@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
-using DefaultNamespace;
+using Gameplay.Collision;
+using UI;
+using UI.ScreensGeneration;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,7 +12,7 @@ namespace Gameplay
         //level = 30 waves;
         [SerializeField] private List<Wave> waves;
         [SerializeField] private Transform characterSpawnPosition;
-        [FormerlySerializedAs("towerSpawnPosition")] [SerializeField] private Transform towerAttackPosition;
+        [SerializeField] private Transform towerAttackPosition;
 
         public Vector3 CharacterSpawnPosition => characterSpawnPosition.position;
 
@@ -19,5 +21,6 @@ namespace Gameplay
         public List<Wave> Waves => waves;
 
         public Transform TowerAttackPosition => towerAttackPosition;
+        
     }
 }

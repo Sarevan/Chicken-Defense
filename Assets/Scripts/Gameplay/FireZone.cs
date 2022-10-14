@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using Gameplay.Collision;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Gameplay
 {
@@ -6,14 +9,22 @@ namespace Gameplay
     {
         [SerializeField] private int steps = 1;
         [SerializeField] private float radius = 1;
-       
-
-
+        [SerializeField] private SphereCollider sphereCenter;
         [SerializeField] private LineRenderer circleRenderer;
+        [SerializeField] private TriggerDetector enemyDetector;
+
+        public event Action EnemyOnFireZone;
 
         public void Start()
         {
-            DrawCircle(steps,radius);
+            DrawCircle(steps, radius);
+            EnemyDetector();
+        }
+
+        public void EnemyDetector()
+        {
+            sphereCenter.radius = radius;
+            enemyDetector.Detected += EnemyDetectorOnDetected;
         }
 
         public void DrawCircle(int steps, float radius)
@@ -27,12 +38,21 @@ namespace Gameplay
                 float xScaled = Mathf.Cos(currentRadian);
                 float zScaled = Mathf.Sin(currentRadian);
 
-                float x =  xScaled * radius;
+                float x = xScaled * radius;
                 float z = zScaled * radius;
 
-                Vector3 currentPosition = new Vector3(x, 0, z);
-                circleRenderer.SetPosition(currentStep,currentPosition);
+                var enemyDetectorCenter = sphereCenter.center;
+
+                Vector3 currentPosition = new Vector3(x, enemyDetectorCenter.y, z);
+                circleRenderer.SetPosition(currentStep, currentPosition);
+
+                enemyDetector.Detected -= EnemyDetectorOnDetected;
             }
+        }
+
+        private void EnemyDetectorOnDetected(Collider obj)
+        {
+            EnemyOnFireZone?.Invoke();
         }
     }
 }

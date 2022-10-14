@@ -1,5 +1,6 @@
 ﻿using System;
 using Configs;
+using Gameplay.Enemy;
 using UnityEngine;
 
 namespace Core
@@ -13,12 +14,13 @@ namespace Core
         private void Start()
         {
             game = new Game(allConfigs.LevelsConfig);
-            
         }
 
         private void Update()
         {
          game.Update();
         }
+
+      
     }
 }

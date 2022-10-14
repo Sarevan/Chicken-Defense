@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Configs;
 using Gameplay;
-using Gameplay.Enemy;
 using Gameplay.Hero;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Core
 {
@@ -19,6 +19,8 @@ namespace Core
         private float startTime;
         private float totalTime;
         private bool isEndWaves;
+
+        
 
         public Game(LevelsConfig levelsConfig)
         {
@@ -58,10 +60,14 @@ namespace Core
         public void SetupLevel(int currentLevel)
         {
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
+
+
             character = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
                 Quaternion.identity, level.transform);
             character.Setup(character.Position);
         }
+
+   
 
         private Wave GetCurrentLevelWave()
         {

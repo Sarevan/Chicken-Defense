@@ -420,6 +420,7 @@ MonoBehaviour:
   waves: []
   characterSpawnPosition: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
   towerAttackPosition: {fileID: 3948517235348198609, guid: ca8c39aeeb912e4459d433c580631c15, type: 3}
+  enemyDetector: {fileID: -616334776103812699, guid: 16de5b6b526effe45b51e7383384c273, type: 3}
 --- !u!1001 &2107179505811597115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4181,7 +4182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8480444068381404157, guid: 2cd65bae81a89ba4788f603d79054d3e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.26
+      value: 4.22
       objectReference: {fileID: 0}
     - target: {fileID: 8480444068381404157, guid: 2cd65bae81a89ba4788f603d79054d3e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4189,7 +4190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8480444068381404157, guid: 2cd65bae81a89ba4788f603d79054d3e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 38.14
+      value: 39.13
       objectReference: {fileID: 0}
     - target: {fileID: 8480444068381404157, guid: 2cd65bae81a89ba4788f603d79054d3e, type: 3}
       propertyPath: m_LocalRotation.w
