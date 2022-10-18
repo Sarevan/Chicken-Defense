@@ -1123,6 +1123,7 @@ GameObject:
   - component: {fileID: -8775878351928121437}
   - component: {fileID: -616334776103812699}
   - component: {fileID: 9144740579391352127}
+  - component: {fileID: 1550852591359844286}
   - component: {fileID: 3948723262068997707}
   m_Layer: 3
   m_Name: BaseChickenAssaultRifle
@@ -1206,10 +1207,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 4496703272309272618}
   enemyDetector: {fileID: -616334776103812699}
+--- !u!114 &1550852591359844286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625937745680711203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff467f996af4d999a8f2e8e34aec22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7518797487667827611, guid: 11f444ff87589ba4ea28896c8f3faa66, type: 3}
+  enemyDetector: {fileID: -616334776103812699}
   fireRate: 1
-  fireCountdown: 1
-  bulletPrefab: {fileID: 5582115704748768111}
-  firePoint: {fileID: 1699696171178436468}
+  fireCountdown: 0.1
 --- !u!120 &3948723262068997707
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -10169,10 +10182,5 @@ PrefabInstance:
 --- !u!4 &5061052043693498837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7139316835588639009, guid: 11f444ff87589ba4ea28896c8f3faa66, type: 3}
-  m_PrefabInstance: {fileID: 2679512941919185140}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5582115704748768111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7518797487667827611, guid: 11f444ff87589ba4ea28896c8f3faa66, type: 3}
   m_PrefabInstance: {fileID: 2679512941919185140}
   m_PrefabAsset: {fileID: 0}
