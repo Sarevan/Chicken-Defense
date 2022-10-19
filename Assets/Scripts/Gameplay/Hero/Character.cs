@@ -9,6 +9,7 @@ namespace Gameplay.Hero
         [SerializeField] private Transform character;
         [SerializeField] private TriggerDetector enemyDetector;
         
+        
         public Vector3 Position => character.position;
 
         public void Setup(Vector3 transform)
