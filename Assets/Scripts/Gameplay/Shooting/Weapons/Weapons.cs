@@ -1,4 +1,5 @@
-﻿using Gameplay.Collision;
+﻿using System;
+using Gameplay.Collision;
 using Gameplay.Shooting.Bullets;
 using UnityEngine;
 
@@ -7,18 +8,24 @@ namespace Gameplay.Shooting.Weapons
     public class Weapons : MonoBehaviour
     {
         [SerializeField] private float fireRate = 0.1f; // скорострельность 
-        [SerializeField] private float fireCountdown = 0.1f; // обратный отсчёт огня
-        [SerializeField] private Bullet bullet;
+        [SerializeField] private Bullet bulletPrefab;
+        [SerializeField] private Transform firePoint;
         [SerializeField] private TriggerDetector target;
-        
-        
+
+
+        private float fireCountdown; // обратный отсчёт огня
         private bool targetInFireZone;
-        
+
+        private void Awake()
+        {
+            fireCountdown = Time.time + fireRate;
+        }
+
         private void Update()
         {
-            Attack();
+            Attack(GetComponentInChildren<Collider>());
         }
-        
+
         private void OnEnable()
         {
             target.Detected += WeaponsFire;
@@ -31,33 +38,27 @@ namespace Gameplay.Shooting.Weapons
 
         private void WeaponsFire(Collider enemy)
         {
-            CheckForEnterEnemy();
-            
-            AimingBulletAtTarget(enemy);
-            
-            Attack();
-        }
-
-        private void CheckForEnterEnemy()
-        {
             targetInFireZone = true;
+            Attack(enemy);
         }
 
-        private void AimingBulletAtTarget(Collider enemy)
+        private void Attack(Collider enemy)
         {
-            var firePointPosition = EnemyPosition(enemy);
-            bullet.FirePoint = firePointPosition;
-        }
-
-        private void Attack()
-        {
-            if (fireCountdown <= 0f && targetInFireZone)
+            if (Time.time >= fireCountdown && targetInFireZone)
             {
-                bullet.Shoot();
-                fireCountdown = 1f / fireRate;
+                Shoot(enemy);
+                fireCountdown = Time.time + fireRate;
             }
+        }
 
-            fireCountdown -= Time.deltaTime;
+        public void Shoot(Collider enemy)
+        {
+            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+            Transform target = EnemyPosition(enemy);
+            Vector3 direction = target.position - transform.position;
+
+            bullet.Setup(direction);
         }
 
         private static Transform EnemyPosition(Collider enemy)

@@ -4,18 +4,33 @@ namespace Gameplay.Shooting.Bullets
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private GameObject bulletPrefab;
-        
-        private Transform firePoint;
-        public Transform FirePoint
+        [SerializeField] private float bulletFlySpeed;
+        /*[SerializeField] private float damage;*/
+        [SerializeField] private float bulletLiveTime = 3;
+
+        private Vector3 direction;
+
+        private void Awake()
         {
-            get => firePoint;
-            set => firePoint = value;
+            Destroy(gameObject, bulletLiveTime);
         }
 
-        public void Shoot()
+        public void Setup(Vector3 direction)
         {
-            Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
+            this.direction = direction;
         }
+
+        private void FixedUpdate()
+        {
+            transform.position += direction * (Time.deltaTime * bulletFlySpeed);
+        }
+
+        /*private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out Enemies.Enemy enemy))
+            {
+                enemy.TakeDamage(damage);
+            }
+        }*/
     }
 }

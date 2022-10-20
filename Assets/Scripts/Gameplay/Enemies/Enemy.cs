@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gameplay.Enemy
+namespace Gameplay.Enemies
 {
     public class Enemy : MonoBehaviour
     {
@@ -21,6 +21,11 @@ namespace Gameplay.Enemy
         private void EnemyMoveToHero()
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+        }
+
+        public void TakeDamage(float damage)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

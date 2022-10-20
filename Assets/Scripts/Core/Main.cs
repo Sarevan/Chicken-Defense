@@ -1,6 +1,6 @@
 ﻿using System;
 using Configs;
-using Gameplay.Enemy;
+using Gameplay.Enemies;
 using UnityEngine;
 
 namespace Core
