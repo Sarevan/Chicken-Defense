@@ -1,28 +1,55 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 
 namespace Gameplay.Shooting.Bullets
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float bulletFlySpeed;
-        /*[SerializeField] private float damage;*/
-        [SerializeField] private float bulletLiveTime = 3;
+        [SerializeField] private float bulletFlySpeed = 0.01f;
 
-        private Vector3 direction;
+        /*[SerializeField] private float damage;*/
+        [SerializeField] private float bulletLiveTime = 5;
+
+        [ShowNonSerializedField]
+        private Transform target;
+
+        private bool targetInFireZone;
 
         private void Awake()
         {
             Destroy(gameObject, bulletLiveTime);
         }
 
-        public void Setup(Vector3 direction)
+        public void Setup(Transform enemyPosition)
         {
-            this.direction = direction;
+            targetInFireZone = true;
+
+            target = enemyPosition;
+            Vector3 direction = transform.position - target.position;
+            transform.forward = direction.normalized;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            transform.position += direction * (Time.deltaTime * bulletFlySpeed);
+            if (targetInFireZone)
+            {
+                Vector3 direction = target.position - transform.position;
+                direction.Normalize();
+                float bulletSpeed = bulletFlySpeed * Time.deltaTime;
+
+                if (direction.magnitude <= bulletSpeed)
+                {
+                    HitTarget();
+                }
+
+                /*target.Translate(direction.normalized * bulletSpeed,Space.World);*/
+                transform.position += direction * (bulletFlySpeed * Time.deltaTime);
+            }
+        }
+
+        private void HitTarget()
+        {
+            Debug.Log("We hit in something ");
         }
 
         /*private void OnTriggerEnter(Collider other)

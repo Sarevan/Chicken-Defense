@@ -5,14 +5,15 @@ namespace Gameplay.Enemies
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private float speed;
-        
+
         private Transform target;
+        public Transform TargetHit => transform;
 
         public void Setup(Transform target)
         {
             this.target = target;
         }
-        
+
         public void Update()
         {
             EnemyMoveToHero();

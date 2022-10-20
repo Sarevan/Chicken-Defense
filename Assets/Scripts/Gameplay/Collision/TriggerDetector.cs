@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gameplay.Collision
@@ -7,15 +8,41 @@ namespace Gameplay.Collision
     {
         [SerializeField] private LayerMask layerMask = -1;
 
-        public event Action<Collider> Detected;
+        private List<Collider> colliders = new List<Collider>();
+
+        public List<T> GetComponentsByColliders<T>()
+        {
+            List<T> temp = new List<T>();
+            for (var i = 0; i < colliders.Count; i++)
+            {
+                if (colliders[i].TryGetComponent<T>(out T coponent))
+                {
+                    temp.Add(coponent);
+                }
+            }
+
+            return temp;
+        }
+
+        public event Action<Collider> Entered;
+        public event Action<Collider> Exit;
 
         private void OnTriggerEnter(Collider collider)
         {
-            if ((layerMask.value & (1 << collider.transform.gameObject.layer)) > 0)
+            //if ((layerMask.value & (1 << collider.gameObject.layer)) > 0)
             {
-                Detected?.Invoke(collider);
+                colliders.Add(collider);
+                Entered?.Invoke(collider);
             }
         }
-        
+
+        private void OnTriggerExit(Collider collider)
+        {
+           // if ((layerMask.value & (1 << collider.gameObject.layer)) > 0)
+            {
+                colliders.Remove(collider);
+                Exit?.Invoke(collider);
+            }
+        }
     }
 }

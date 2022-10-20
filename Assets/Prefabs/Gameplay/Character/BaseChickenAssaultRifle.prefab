@@ -311,7 +311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226796262146263857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.004, y: 0.166, z: 1.194}
+  m_LocalPosition: {x: -0.004, y: 0.166, z: 1.149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1206,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 4496703272309272618}
   enemyDetector: {fileID: -616334776103812699}
+  weapon: {fileID: 2323934412574122754}
 --- !u!114 &2323934412574122754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,11 +1219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f372f90628a43be9f7abeea62c1485f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
-  fireCountdown: 0.1
+  fireRate: 0.5
   bulletPrefab: {fileID: 8071644281055276199, guid: 11f444ff87589ba4ea28896c8f3faa66, type: 3}
   firePoint: {fileID: 7494345706301279374}
-  target: {fileID: -616334776103812699}
 --- !u!114 &-616334776103812699
 MonoBehaviour:
   m_ObjectHideFlags: 0
