@@ -15,7 +15,7 @@ namespace Gameplay
         [SerializeField] private float duration; // продолжительность
         [SerializeField] private float timeOneIntervalSpawn; // время одного интервала
         [SerializeField] private int countSpawnEnemiesAtInterval; // число заспавненного противника на интервале
-        [SerializeField] private List<Enemies.Enemy> prefabsRandomEnemies; // сами противники в рандомном порядке 
+        [SerializeField] private List<Enemies.EnemyMove> prefabsRandomEnemies; // сами противники в рандомном порядке 
 
         [SerializeField]
         private int countSpawnRandomEnemies; // противники будут спавниться рандомно с различным интервалом времени
@@ -102,11 +102,11 @@ namespace Gameplay
             }
         }
 
-        private void EnemyLookOnHero(Enemy enemy)
+        private void EnemyLookOnHero(EnemyMove enemyMove)
         {
-            Vector3 relative = enemy.transform.InverseTransformPoint(characterTransform.position);
+            Vector3 relative = enemyMove.transform.InverseTransformPoint(characterTransform.position);
             float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
-            enemy.transform.Rotate(0, angle, 0);
+            enemyMove.transform.Rotate(0, angle, 0);
         }
 
         private Vector3 RandomCircle(Vector3 center, float radius)

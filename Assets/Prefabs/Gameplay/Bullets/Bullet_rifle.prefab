@@ -129,9 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff467f996af4d999a8f2e8e34aec22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletFlySpeed: 10
-  damage: 0
-  bulletLiveTime: 1
+  bulletFlySpeed: 3
+  damage: 1
+  bulletLiveTime: 4
   trailBulletEffect: {fileID: 100000, guid: 48839b16f71af4a4f8fc135f34b0b99b, type: 3}
 --- !u!136 &4252799964551459198
 CapsuleCollider:

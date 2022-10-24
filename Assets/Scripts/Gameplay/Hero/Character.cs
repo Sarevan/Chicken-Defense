@@ -40,16 +40,16 @@ namespace Gameplay.Hero
             GetDistanceFromEnemy(target);
         }
 
-        private Enemy SelectedEnemyToAttack(List<Enemy> detectedEnemiesInRadiusDamage)
+        private EnemyMove SelectedEnemyToAttack(List<EnemyMove> detectedEnemiesInRadiusDamage)
         {
-            Enemy target = detectedEnemiesInRadiusDamage
+            EnemyMove target = detectedEnemiesInRadiusDamage
                 .Aggregate((enemy, nextEnemy) => GetDistanceFromEnemy(enemy) < GetDistanceFromEnemy(nextEnemy) ? enemy : nextEnemy);
             return target;
         }
 
-        private bool DetectedEnemiesInRadiusDamage(out List<Enemy> detectedEnemiesInRadiusDamage)
+        private bool DetectedEnemiesInRadiusDamage(out List<EnemyMove> detectedEnemiesInRadiusDamage)
         {
-            detectedEnemiesInRadiusDamage = enemyDetector.GetComponentsByColliders<Enemy>();
+            detectedEnemiesInRadiusDamage = enemyDetector.GetComponentsByColliders<EnemyMove>();
 
             if (detectedEnemiesInRadiusDamage.Count == 0)
             {
@@ -61,17 +61,17 @@ namespace Gameplay.Hero
 
         private void OnEnable()
         {
-            enemyDetector.Entered += EnemyEnterOnFireZone;
+            enemyDetector.TriggerEnter += EnemyEnterOnFireZone;
         }
 
         private void OnDisable()
         {
-            enemyDetector.Entered -= EnemyEnterOnFireZone;
+            enemyDetector.TriggerEnter -= EnemyEnterOnFireZone;
         }
 
-        private float GetDistanceFromEnemy(Enemy enemy)
+        private float GetDistanceFromEnemy(EnemyMove enemyMove)
         {
-            return Vector3.Distance(enemy.transform.position, transform.position);
+            return Vector3.Distance(enemyMove.transform.position, transform.position);
         }
 
         private void EnemyEnterOnFireZone(Collider enemy)

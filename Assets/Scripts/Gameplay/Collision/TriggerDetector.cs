@@ -24,14 +24,14 @@ namespace Gameplay.Collision
             return temp;
         }
 
-        public event Action<Collider> Entered;
-        public event Action<Collider> Exit;
+        public event Action<Collider> TriggerEnter;
+        public event Action<Collider> TriggerExit;
 
         private void OnTriggerEnter(Collider collider)
         {
             {
                 colliders.Add(collider);
-                Entered?.Invoke(collider);
+                TriggerEnter?.Invoke(collider);
             }
         }
 
@@ -39,7 +39,7 @@ namespace Gameplay.Collision
         {
             {
                 colliders.Remove(collider);
-                Exit?.Invoke(collider);
+                TriggerExit?.Invoke(collider);
             }
         }
     }

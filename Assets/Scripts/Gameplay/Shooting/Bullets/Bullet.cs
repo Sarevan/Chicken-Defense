@@ -53,12 +53,12 @@ namespace Gameplay.Shooting.Bullets
         }
         
 
-        /*private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider enemyCollider)
         {
-            if (other.TryGetComponent(out Enemies.Enemy enemy))
+            if (enemyCollider.TryGetComponent(out Enemies.EnemyHealth enemy))
             {
                 enemy.TakeDamage(damage);
             }
-        }*/
+        }
     }
 }
