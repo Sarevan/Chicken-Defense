@@ -102,7 +102,7 @@ namespace Gameplay
             }
         }
 
-        private void EnemyLookOnHero(Enemies.Enemy enemy)
+        private void EnemyLookOnHero(Enemy enemy)
         {
             Vector3 relative = enemy.transform.InverseTransformPoint(characterTransform.position);
             float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;

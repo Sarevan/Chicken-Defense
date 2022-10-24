@@ -20,7 +20,5 @@ namespace Core
         {
          game.Update();
         }
-
-      
     }
 }

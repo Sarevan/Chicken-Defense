@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Collision;
 using Gameplay.Enemies;
+using Gameplay.Shooting.Bullets;
 using Gameplay.Shooting.Weapons;
 using UnityEngine;
 
@@ -12,32 +14,49 @@ namespace Gameplay.Hero
         [SerializeField] private Transform character;
         [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private Weapon weapon;
+       
 
         public Vector3 Position => character.position;
 
-        public void Setup(Vector3 transform)
+       
+
+        public void Setup(Vector3 position)
         {
-            character.position = transform;
+            character.position = position;
         }
 
         private void Update()
         {
-            var detectedEnemiesInRadiusDamage = enemyDetector.GetComponentsByColliders<Enemy>();
-            if (detectedEnemiesInRadiusDamage.Count == 0)
-            {
+            if (DetectedEnemiesInRadiusDamage(out var enemiesInRadiusDamage)) 
                 return;
-            }
-
-            Enemy target = detectedEnemiesInRadiusDamage
-                .Aggregate((enemy, enemy1) => getDistance(enemy) < getDistance(enemy1) ? enemy : enemy1);
+            
+            var target = SelectedEnemyToAttack(enemiesInRadiusDamage);
 
             LookAtEnemy(target.transform);
+            
             weapon.Shoot(target.TargetHit);
+           
 
-            float getDistance(Enemy enemy)
+            GetDistanceFromEnemy(target);
+        }
+
+        private Enemy SelectedEnemyToAttack(List<Enemy> detectedEnemiesInRadiusDamage)
+        {
+            Enemy target = detectedEnemiesInRadiusDamage
+                .Aggregate((enemy, nextEnemy) => GetDistanceFromEnemy(enemy) < GetDistanceFromEnemy(nextEnemy) ? enemy : nextEnemy);
+            return target;
+        }
+
+        private bool DetectedEnemiesInRadiusDamage(out List<Enemy> detectedEnemiesInRadiusDamage)
+        {
+            detectedEnemiesInRadiusDamage = enemyDetector.GetComponentsByColliders<Enemy>();
+
+            if (detectedEnemiesInRadiusDamage.Count == 0)
             {
-                return Vector3.Distance(enemy.transform.position, transform.position);
+                return true;
             }
+
+            return false;
         }
 
         private void OnEnable()
@@ -48,6 +67,11 @@ namespace Gameplay.Hero
         private void OnDisable()
         {
             enemyDetector.Entered -= EnemyEnterOnFireZone;
+        }
+
+        private float GetDistanceFromEnemy(Enemy enemy)
+        {
+            return Vector3.Distance(enemy.transform.position, transform.position);
         }
 
         private void EnemyEnterOnFireZone(Collider enemy)

@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 7518797487667827611}
   m_LocalRotation: {x: 0, y: 0.054689728, z: 0, w: 0.99850345}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1268492753335659308}
@@ -129,8 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff467f996af4d999a8f2e8e34aec22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletFlySpeed: 2.5
-  bulletLiveTime: 7
+  bulletFlySpeed: 10
+  damage: 0
+  bulletLiveTime: 1
+  trailBulletEffect: {fileID: 100000, guid: 48839b16f71af4a4f8fc135f34b0b99b, type: 3}
 --- !u!136 &4252799964551459198
 CapsuleCollider:
   m_ObjectHideFlags: 0

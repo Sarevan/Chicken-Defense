@@ -8,16 +8,16 @@ namespace Gameplay.Collision
     {
         [SerializeField] private LayerMask layerMask = -1;
 
-        private List<Collider> colliders = new List<Collider>();
+        private List<Collider> colliders = new();
 
         public List<T> GetComponentsByColliders<T>()
         {
             List<T> temp = new List<T>();
-            for (var i = 0; i < colliders.Count; i++)
+            for (var collider = 0; collider < colliders.Count; collider++)
             {
-                if (colliders[i].TryGetComponent<T>(out T coponent))
+                if (colliders[collider].TryGetComponent<T>(out T component))
                 {
-                    temp.Add(coponent);
+                    temp.Add(component);
                 }
             }
 
@@ -29,7 +29,6 @@ namespace Gameplay.Collision
 
         private void OnTriggerEnter(Collider collider)
         {
-            //if ((layerMask.value & (1 << collider.gameObject.layer)) > 0)
             {
                 colliders.Add(collider);
                 Entered?.Invoke(collider);
@@ -38,7 +37,6 @@ namespace Gameplay.Collision
 
         private void OnTriggerExit(Collider collider)
         {
-           // if ((layerMask.value & (1 << collider.gameObject.layer)) > 0)
             {
                 colliders.Remove(collider);
                 Exit?.Invoke(collider);

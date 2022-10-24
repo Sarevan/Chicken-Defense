@@ -5,13 +5,16 @@ namespace Gameplay.Shooting.Bullets
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float bulletFlySpeed = 0.01f;
+        [SerializeField] private float bulletFlySpeed = 1f;
 
-        /*[SerializeField] private float damage;*/
-        [SerializeField] private float bulletLiveTime = 5;
+        [SerializeField] private float damage;
+        [SerializeField] private float bulletLiveTime = 2;
+        [SerializeField] private GameObject trailBulletEffect;
 
         [ShowNonSerializedField]
         private Transform target;
+
+       
 
         private bool targetInFireZone;
 
@@ -23,7 +26,6 @@ namespace Gameplay.Shooting.Bullets
         public void Setup(Transform enemyPosition)
         {
             targetInFireZone = true;
-
             target = enemyPosition;
             Vector3 direction = transform.position - target.position;
             transform.forward = direction.normalized;
@@ -37,20 +39,19 @@ namespace Gameplay.Shooting.Bullets
                 direction.Normalize();
                 float bulletSpeed = bulletFlySpeed * Time.deltaTime;
 
-                if (direction.magnitude <= bulletSpeed)
+                if (direction.magnitude >= bulletSpeed)
                 {
                     HitTarget();
                 }
-
-                /*target.Translate(direction.normalized * bulletSpeed,Space.World);*/
                 transform.position += direction * (bulletFlySpeed * Time.deltaTime);
             }
         }
 
         private void HitTarget()
         {
-            Debug.Log("We hit in something ");
+            Instantiate(trailBulletEffect, transform.position, transform.rotation);
         }
+        
 
         /*private void OnTriggerEnter(Collider other)
         {
