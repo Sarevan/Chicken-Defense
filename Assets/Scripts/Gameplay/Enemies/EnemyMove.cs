@@ -1,44 +1,45 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Gameplay.Enemies
 {
     public class EnemyMove : MonoBehaviour
     {
         [SerializeField] private float speed;
+
         [SerializeField] private EnemyAnimator animator;
+        [SerializeField] private EnemyAttackDetector detectorAttack;
 
         private Transform target;
-        public Transform TargetHit => transform;
-        private bool isEnemyHere;
 
-            public void Setup(Transform target)
+        public Transform TargetHit => transform;
+        
+        public event Action EnemyInHeroAttackZone;
+
+        public void Setup(Transform target)
         {
             this.target = target;
         }
-
-        public void Update()
+        
+        private void OnEnable()
         {
-            EnemyMoveToHero();
+            detectorAttack.Detected += AttackZoneDetectorOnDetected;
         }
 
-        // transfer this method in EnemyAttack class some later 
-        public void EnemyAttack()
+        private void OnDisable()
         {
-            isEnemyHere = true;
-            animator.PlayAttack(); 
+            detectorAttack.Detected -= AttackZoneDetectorOnDetected;
         }
 
-        private void EnemyMoveToHero()
+        public void EnemyMoveToHero()
         {
-            if (!isEnemyHere)
-            {
-                animator.PlayMove();
-                transform.position = Vector3.MoveTowards(transform.position, target.position, speed); 
-            }
-            else
-            {
-                EnemyAttack();
-            }
+            animator.PlayMove();
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+        }
+
+        private void AttackZoneDetectorOnDetected(Collider obj)
+        {
+            EnemyInHeroAttackZone?.Invoke();
         }
     }
 }

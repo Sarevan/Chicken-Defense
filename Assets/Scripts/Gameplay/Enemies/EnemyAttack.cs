@@ -1,35 +1,45 @@
 ﻿using System;
-using Logic;
 using UnityEngine;
 
 namespace Gameplay.Enemies
 {
     public class EnemyAttack : MonoBehaviour
     {
-        [SerializeField] private EnemyAnimator animator;
         [SerializeField] private float damage;
 
+        [SerializeField] private EnemyAnimator animator;
+        [SerializeField] private EnemyMove enemyMove;
+
         private EnemyHealth enemyHealth;
-
-        private bool isAttacking;
-
+        private bool enemyOnAttackPosition;
         public float Damage => damage;
-
-      
 
         private void Update()
         {
-            isAttacking = true;
+            if (!enemyOnAttackPosition)
+            {
+                enemyMove.EnemyMoveToHero();
+            }
+            else
+            {
+                Attack();
+            }
         }
 
-     
-        
-        private void OnTriggerEnter(Collider heroCollider)
+        private void OnEnable()
         {
-            if (heroCollider.TryGetComponent(out EnemyMove enemy))
-            {
-               enemy.EnemyAttack();
-            }
+            enemyMove.EnemyInHeroAttackZone += Attack;
+        }
+
+        private void OnDisable()
+        {
+            enemyMove.EnemyInHeroAttackZone -= Attack;
+        }
+
+        public void Attack()
+        {
+            enemyOnAttackPosition = true;
+            animator.PlayAttack();
         }
     }
 }

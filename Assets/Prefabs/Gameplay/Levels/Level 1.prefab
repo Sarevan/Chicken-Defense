@@ -2045,7 +2045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].prefabsRandomEnemies.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].guaranteedSpawnEnemies.Array.size

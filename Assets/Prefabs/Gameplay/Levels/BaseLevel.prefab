@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5838570372432351260}
   - component: {fileID: 6385660237119202755}
   - component: {fileID: 8132787079943187627}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!114 &8132787079943187627
