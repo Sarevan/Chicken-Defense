@@ -14,6 +14,7 @@ namespace Gameplay.Hero
         [SerializeField] private Transform character;
         [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private Weapon weapon;
+        
        
 
         public Vector3 Position => character.position;

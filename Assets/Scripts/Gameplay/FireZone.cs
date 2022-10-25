@@ -9,9 +9,11 @@ namespace Gameplay
     {
         [SerializeField] private int steps = 1;
         [SerializeField] private float radius = 1;
-        [SerializeField] private SphereCollider sphereCenter;
+        [SerializeField] private SphereCollider sphereCollider;
         [SerializeField] private LineRenderer circleRenderer;
-        
+
+        public SphereCollider SphereCollider => sphereCollider;
+
         public void Start()
         {
             DrawCircle(steps, radius);
@@ -20,7 +22,7 @@ namespace Gameplay
 
         public void EnemyDetector()
         {
-            sphereCenter.radius = radius;
+            SphereCollider.radius = radius;
         }
 
         public void DrawCircle(int steps, float radius)
@@ -37,7 +39,7 @@ namespace Gameplay
                 float x = xScaled * radius;
                 float z = zScaled * radius;
 
-                var enemyDetectorCenter = sphereCenter.center;
+                var enemyDetectorCenter = SphereCollider.center;
 
                 Vector3 currentPosition = new Vector3(x, enemyDetectorCenter.y, z);
                 circleRenderer.SetPosition(currentStep, currentPosition);
