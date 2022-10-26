@@ -9,17 +9,20 @@ using UnityEngine;
 
 namespace Gameplay.Hero
 {
-    public class Character : MonoBehaviour
+    public class CharacterEnemyDetector : MonoBehaviour
     {
         [SerializeField] private Transform character;
         [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private Weapon weapon;
+        [SerializeField] private SphereCollider sphereCollider;
         
-       
-
         public Vector3 Position => character.position;
 
-       
+        public SphereCollider SphereCollider
+        {
+            get => sphereCollider;
+            set => sphereCollider = value;
+        }
 
         public void Setup(Vector3 position)
         {

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2625937745680711203
+--- !u!1 &1517931169305614803
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4496703272309272618}
-  - component: {fileID: -8775878351928121437}
-  - component: {fileID: 3948723262068997707}
-  m_Layer: 8
+  - component: {fileID: 5319642092325599094}
+  - component: {fileID: 5654621840661459527}
+  - component: {fileID: 1701060727323121658}
+  m_Layer: 0
   m_Name: FireZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4496703272309272618
+--- !u!4 &5319642092325599094
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2625937745680711203}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1517931169305614803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33,13 +33,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8775878351928121437
+--- !u!114 &5654621840661459527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2625937745680711203}
+  m_GameObject: {fileID: 1517931169305614803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f476599093f4d1f855ffb9e24a1676f, type: 3}
@@ -47,15 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steps: 100
   radius: 10
-  sphereCollider: {fileID: -6215479036432181093, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
-  circleRenderer: {fileID: 3948723262068997707}
---- !u!120 &3948723262068997707
+  circleRenderer: {fileID: 1701060727323121658}
+  detector: {fileID: 2141028041018802698, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
+--- !u!120 &1701060727323121658
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2625937745680711203}
+  m_GameObject: {fileID: 1517931169305614803}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -199,7 +199,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.38111877
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0

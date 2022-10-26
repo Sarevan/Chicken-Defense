@@ -10,7 +10,9 @@ namespace Core
     public class Game
     {
         private LevelsConfig levelsConfig;
-        private Character character;
+        private CharacterEnemyDetector characterEnemyDetector;
+        private FireZone fireZone;
+
 
 
         private Level level;
@@ -60,15 +62,16 @@ namespace Core
         public void SetupLevel(int currentLevel)
         {
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
-
-
-            character = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
+            
+            characterEnemyDetector = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
                 Quaternion.identity, level.transform);
-            character.Setup(character.Position);
+            characterEnemyDetector.Setup(characterEnemyDetector.Position);
+
+            fireZone = Object.Instantiate(GetCurrentFireZone(currentLevel), level.CharacterSpawnPosition,
+                Quaternion.identity, level.transform);
+            fireZone.Setup(characterEnemyDetector.SphereCollider);
         }
-
-   
-
+        
         private Wave GetCurrentLevelWave()
         {
             if (currentIndexWave >= level.Waves.Count)
@@ -89,18 +92,25 @@ namespace Core
             return level.Waves[currentIndexWave];
         }
 
-        private Character GetCurrentCharacter(int currentCharacter)
-        {
-            var levelsInfoCount = levelsConfig.LevelsInfo.Count;
-            var result = levelsConfig.LevelsInfo[currentCharacter % levelsInfoCount];
-            return result.Character;
-        }
-
         private Level GetCurrentLevel(int currentLevel)
         {
             var levelsInfoCount = levelsConfig.LevelsInfo.Count;
             var result = levelsConfig.LevelsInfo[currentLevel % levelsInfoCount];
             return result.Level;
+        }
+
+        private CharacterEnemyDetector GetCurrentCharacter(int currentCharacter)
+        {
+            var levelsInfoCount = levelsConfig.LevelsInfo.Count;
+            var result = levelsConfig.LevelsInfo[currentCharacter % levelsInfoCount];
+            return result.CharacterEnemyDetector;
+        }
+
+        private FireZone GetCurrentFireZone(int currentCollider)
+        {
+            var levelsInfoCount = levelsConfig.LevelsInfo.Count;
+            var result = levelsConfig.LevelsInfo[currentCollider % levelsInfoCount];
+            return result.FireZone;
         }
     }
 }

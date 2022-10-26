@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Collision;
-using UI;
 using UI.ScreensGeneration;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay
 {

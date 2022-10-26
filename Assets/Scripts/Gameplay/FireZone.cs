@@ -1,7 +1,5 @@
-﻿using System;
-using Gameplay.Collision;
+﻿using Gameplay.Hero;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay
 {
@@ -9,23 +7,26 @@ namespace Gameplay
     {
         [SerializeField] private int steps = 1;
         [SerializeField] private float radius = 1;
-        [SerializeField] private SphereCollider sphereCollider;
         [SerializeField] private LineRenderer circleRenderer;
-
-        public SphereCollider SphereCollider => sphereCollider;
-
+        [SerializeField] private CharacterEnemyDetector detector;
+        
         public void Start()
         {
             DrawCircle(steps, radius);
-            EnemyDetector();
+            RadiusDetector();
         }
 
-        public void EnemyDetector()
+        public void Setup(SphereCollider sphereCollider)
         {
-            SphereCollider.radius = radius;
+            detector.SphereCollider = sphereCollider;
+        }
+        
+        private void RadiusDetector()
+        {
+            detector.SphereCollider.radius = radius;
         }
 
-        public void DrawCircle(int steps, float radius)
+        private void DrawCircle(int steps, float radius)
         {
             circleRenderer.positionCount = steps;
             for (int currentStep = 0; currentStep < steps; currentStep++)
@@ -39,7 +40,7 @@ namespace Gameplay
                 float x = xScaled * radius;
                 float z = zScaled * radius;
 
-                var enemyDetectorCenter = SphereCollider.center;
+                var enemyDetectorCenter =  detector.SphereCollider.center;
 
                 Vector3 currentPosition = new Vector3(x, enemyDetectorCenter.y, z);
                 circleRenderer.SetPosition(currentStep, currentPosition);
