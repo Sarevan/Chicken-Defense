@@ -41,8 +41,12 @@ namespace Gameplay.Enemies
 
         private IEnumerator DestroyTimer()
         {
-            yield return new WaitForSeconds(2);
-            Destroy(gameObject);
+            yield return new WaitForSeconds(1);
+
+            if (gameObject != null)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

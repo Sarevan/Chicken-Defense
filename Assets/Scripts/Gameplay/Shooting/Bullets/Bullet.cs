@@ -33,7 +33,7 @@ namespace Gameplay.Shooting.Bullets
 
         private void Update()
         {
-            if (targetInFireZone)
+            if (targetInFireZone && target != null)
             {
                 Vector3 direction = target.position - transform.position;
                 direction.Normalize();

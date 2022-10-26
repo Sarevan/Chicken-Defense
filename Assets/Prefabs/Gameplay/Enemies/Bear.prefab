@@ -1999,8 +1999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6425573254459030481}
-  current: 7
-  max: 7
+  current: 4
+  max: 4
 --- !u!114 &4566364756588858027
 MonoBehaviour:
   m_ObjectHideFlags: 0

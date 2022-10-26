@@ -15,12 +15,16 @@ namespace Gameplay.Collision
             List<T> temp = new List<T>();
             for (var collider = 0; collider < colliders.Count; collider++)
             {
-                if (colliders[collider].TryGetComponent<T>(out T component))
-                {
-                    temp.Add(component);
-                }
+               
+                    if (colliders[collider] != null && colliders[collider].TryGetComponent<T>(out T component))
+                    {
+                        temp.Add(component);
+                    }
+                    else
+                    {
+                        break;
+                    }
             }
-
             return temp;
         }
 
