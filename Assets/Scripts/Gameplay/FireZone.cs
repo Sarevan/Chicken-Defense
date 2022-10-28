@@ -17,9 +17,9 @@ namespace Gameplay
             RadiusDetector();
         }
 
-        public void Setup(SphereCollider sphereCollider)
+        public void Setup(SphereCollider detector)
         {
-            this.sphereCollider = sphereCollider;
+            sphereCollider = detector;
         }
         
         private void RadiusDetector()
