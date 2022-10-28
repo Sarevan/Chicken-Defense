@@ -18,11 +18,7 @@ namespace Gameplay.Hero
         
         public Vector3 Position => character.position;
 
-        public SphereCollider SphereCollider
-        {
-            get => sphereCollider;
-            set => sphereCollider = value;
-        }
+        public SphereCollider SphereCollider => sphereCollider;
 
         public void Setup(Vector3 position)
         {

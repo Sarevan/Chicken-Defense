@@ -12,18 +12,14 @@ namespace Core
         private LevelsConfig levelsConfig;
         private CharacterEnemyDetector characterEnemyDetector;
         private FireZone fireZone;
-
-
-
+        
         private Level level;
 
         private int currentIndexWave;
         private float startTime;
         private float totalTime;
         private bool isEndWaves;
-
         
-
         public Game(LevelsConfig levelsConfig)
         {
             this.levelsConfig = levelsConfig;
@@ -34,8 +30,7 @@ namespace Core
 
             SetupLevel(levelsConfig.LevelsInfo.Count);
         }
-
-
+        
         public void Update()
         {
             if (isEndWaves)
@@ -57,8 +52,7 @@ namespace Core
                 isEndWaves = true;
             }
         }
-
-
+        
         public void SetupLevel(int currentLevel)
         {
             level = Object.Instantiate(GetCurrentLevel(currentLevel));

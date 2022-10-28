@@ -8,7 +8,8 @@ namespace Gameplay
         [SerializeField] private int steps = 1;
         [SerializeField] private float radius = 1;
         [SerializeField] private LineRenderer circleRenderer;
-        [SerializeField] private CharacterEnemyDetector detector;
+
+        private SphereCollider sphereCollider;
         
         public void Start()
         {
@@ -18,12 +19,12 @@ namespace Gameplay
 
         public void Setup(SphereCollider sphereCollider)
         {
-            detector.SphereCollider = sphereCollider;
+            this.sphereCollider = sphereCollider;
         }
         
         private void RadiusDetector()
         {
-            detector.SphereCollider.radius = radius;
+           radius =  sphereCollider.radius;
         }
 
         private void DrawCircle(int steps, float radius)
@@ -40,7 +41,7 @@ namespace Gameplay
                 float x = xScaled * radius;
                 float z = zScaled * radius;
 
-                var enemyDetectorCenter =  detector.SphereCollider.center;
+                var enemyDetectorCenter =   sphereCollider.center;
 
                 Vector3 currentPosition = new Vector3(x, enemyDetectorCenter.y, z);
                 circleRenderer.SetPosition(currentStep, currentPosition);
