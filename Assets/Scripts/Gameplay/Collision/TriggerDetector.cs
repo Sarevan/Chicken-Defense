@@ -15,16 +15,21 @@ namespace Gameplay.Collision
             List<T> temp = new List<T>();
             for (var collider = 0; collider < colliders.Count; collider++)
             {
-               
-                    if (colliders[collider] != null && colliders[collider].TryGetComponent<T>(out T component))
-                    {
-                        temp.Add(component);
-                    }
-                    else
-                    {
-                        break;
-                    }
+                if (colliders[collider] == null)
+                {
+                    continue;
+                }
+
+                if (colliders[collider] != null && colliders[collider].TryGetComponent<T>(out T component))
+                {
+                    temp.Add(component);
+                }
+                else
+                {
+                    break;
+                }
             }
+
             return temp;
         }
 
@@ -33,18 +38,22 @@ namespace Gameplay.Collision
 
         private void OnTriggerEnter(Collider collider)
         {
+            for (var i = colliders.Count - 1; i >= 0; i--)
             {
-                colliders.Add(collider);
-                TriggerEnter?.Invoke(collider);
+                if (colliders[i] == null)
+                {
+                    colliders.RemoveAt(i);
+                }
             }
+
+            colliders.Add(collider);
+            TriggerEnter?.Invoke(collider);
         }
 
         private void OnTriggerExit(Collider collider)
         {
-            {
-                colliders.Remove(collider);
-                TriggerExit?.Invoke(collider);
-            }
+            colliders.Remove(collider);
+            TriggerExit?.Invoke(collider);
         }
     }
 }

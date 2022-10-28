@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Collision;
 using Gameplay.Enemies;
-using Gameplay.Shooting.Bullets;
 using Gameplay.Shooting.Weapons;
 using UnityEngine;
 
