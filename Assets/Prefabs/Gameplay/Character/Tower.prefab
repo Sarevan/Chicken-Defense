@@ -20189,8 +20189,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8935032457919258989}
   - component: {fileID: 2020194931413664247}
+  - component: {fileID: 1220674135317932182}
+  - component: {fileID: 1546521184160599664}
   m_Layer: 3
-  m_Name: TowerFracture
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20226,6 +20228,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: -129.2, y: -178, z: 152.64}
   m_Center: {x: -0.08, y: 93.2, z: -20.6}
+--- !u!114 &1220674135317932182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121199602288081879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c560f0351db4a3a82b8a780d0ab763a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 5
+  max: 5
+  dustFX: {fileID: 100000, guid: 29f0684e02f59b748a25dcff64a2cb13, type: 3}
+--- !u!114 &1546521184160599664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121199602288081879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b7f03d2cbe43318fd83f48270fc712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1220674135317932182}
+  tower: {fileID: 3862895220048631311}
+  towerExplosion: {fileID: 6996723728005421566}
+  ground: {fileID: 1210480019440799752, guid: 79629aaf20925ca4795639823d2be74b, type: 3}
+  defender: {fileID: 6061262303147085612, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
+  dropSpeed: 2
+  explosionFx: {fileID: 1892078723244562, guid: 46c83df99b12cdc4a880a7d62beaa83c, type: 3}
 --- !u!1 &8142423607962434687
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelsInfo:
   - level: {fileID: 4365615716728379013, guid: 830ea9be32bd0034b81487380ec01597, type: 3}
-    characterEnemyDetector: {fileID: 2141028041018802698, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
+    characterAttack: {fileID: 2141028041018802698, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
     fireZone: {fileID: 5654621840661459527, guid: 63b87efb2d0a8984a9cc2f498aada9ab, type: 3}

@@ -2248,7 +2248,7 @@ Animator:
   m_GameObject: {fileID: 781213433786146315}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9f078227c6f09b54392514bfaa25c741, type: 3}
-  m_Controller: {fileID: 9100000, guid: 00b5419b66a363e44bdea8c81cac5fb6, type: 2}
+  m_Controller: {fileID: 22100000, guid: 92148ab219bbae34a9eccd5cae56bc58, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -9917,6 +9917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6061262303147085612}
   - component: {fileID: -6215479036432181093}
+  - component: {fileID: 9161190201340863127}
   - component: {fileID: 5179450415500103135}
   - component: {fileID: 2141028041018802698}
   - component: {fileID: 4318650576535362410}
@@ -9956,6 +9957,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: -4.64, z: 0}
+--- !u!114 &9161190201340863127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662694691229004342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216190119f7f4fa1a8f45002a8ec3544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 781213433786146314}
 --- !u!114 &5179450415500103135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9984,9 +9998,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 6061262303147085612}
-  enemyDetector: {fileID: 5179450415500103135}
   weapon: {fileID: 4318650576535362410}
+  enemyDetector: {fileID: 5179450415500103135}
   sphereCollider: {fileID: -6215479036432181093}
+  animator: {fileID: 0}
 --- !u!114 &4318650576535362410
 MonoBehaviour:
   m_ObjectHideFlags: 0

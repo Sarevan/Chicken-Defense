@@ -1,6 +1,6 @@
 ﻿using System;
 using Gameplay;
-using Gameplay.Hero;
+using Gameplay.Character;
 using UnityEngine;
 
 namespace Configs
@@ -9,14 +9,14 @@ namespace Configs
     public class LevelConfigInfo
     {
         [SerializeField] private Level level;
-        [SerializeField] private CharacterEnemyDetector characterEnemyDetector;
+        [SerializeField] private CharacterAttack characterAttack;
         [SerializeField] private FireZone fireZone;
 
 
 
         public Level Level => level;
 
-        public CharacterEnemyDetector CharacterEnemyDetector => characterEnemyDetector;
+        public CharacterAttack CharacterAttack => characterAttack;
 
         public FireZone FireZone => fireZone;
     }

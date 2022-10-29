@@ -5,17 +5,19 @@ using Gameplay.Enemies;
 using Gameplay.Shooting.Weapons;
 using UnityEngine;
 
-namespace Gameplay.Hero
+namespace Gameplay.Character
 {
-    public class CharacterEnemyDetector : MonoBehaviour
+    public class CharacterAttack : MonoBehaviour
     {
         [SerializeField] private Transform character;
-        [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private Weapon weapon;
+        
+        [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private SphereCollider sphereCollider;
         
+        [SerializeField] private CharacterAnimator animator;
+        
         public Vector3 Position => character.position;
-
         public SphereCollider SphereCollider => sphereCollider;
 
         public void Setup(Vector3 position)
@@ -31,11 +33,21 @@ namespace Gameplay.Hero
             var target = SelectedEnemyToAttack(enemiesInRadiusDamage);
 
             LookAtEnemy(target.transform);
-            
-            weapon.Shoot(target.TargetHit);
-           
 
+            animator.PlayAttack();
+            Attack(target);
+            
             GetDistanceFromEnemy(target);
+        }
+
+        private void OnEnable()
+        {
+            enemyDetector.TriggerEnter += EnemyEnterOnFireZone;
+        }
+
+        private void OnDisable()
+        {
+            enemyDetector.TriggerEnter -= EnemyEnterOnFireZone;
         }
 
         private EnemyMove SelectedEnemyToAttack(List<EnemyMove> detectedEnemiesInRadiusDamage)
@@ -57,19 +69,14 @@ namespace Gameplay.Hero
             return false;
         }
 
-        private void OnEnable()
-        {
-            enemyDetector.TriggerEnter += EnemyEnterOnFireZone;
-        }
-
-        private void OnDisable()
-        {
-            enemyDetector.TriggerEnter -= EnemyEnterOnFireZone;
-        }
-
         private float GetDistanceFromEnemy(EnemyMove enemyMove)
         {
             return Vector3.Distance(enemyMove.transform.position, transform.position);
+        }
+
+        private void Attack(EnemyMove target)
+        {
+            weapon.Shoot(target.TargetHit);
         }
 
         private void EnemyEnterOnFireZone(Collider enemy)

@@ -1,7 +1,7 @@
 ﻿using System;
 using Configs;
 using Gameplay;
-using Gameplay.Hero;
+using Gameplay.Character;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -10,7 +10,7 @@ namespace Core
     public class Game
     {
         private LevelsConfig levelsConfig;
-        private CharacterEnemyDetector characterEnemyDetector;
+        private CharacterAttack characterAttack;
         private FireZone fireZone;
         
         private Level level;
@@ -57,13 +57,13 @@ namespace Core
         {
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
             
-            characterEnemyDetector = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
+            characterAttack = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
                 Quaternion.identity, level.transform);
-            characterEnemyDetector.Setup(characterEnemyDetector.Position);
+            characterAttack.Setup(characterAttack.Position);
 
             fireZone = Object.Instantiate(GetCurrentFireZone(currentLevel), level.CharacterSpawnPosition,
                 Quaternion.identity, level.transform);
-            fireZone.Setup(characterEnemyDetector.SphereCollider);
+            fireZone.Setup(characterAttack.SphereCollider);
         }
         
         private Wave GetCurrentLevelWave()
@@ -93,11 +93,11 @@ namespace Core
             return result.Level;
         }
 
-        private CharacterEnemyDetector GetCurrentCharacter(int currentCharacter)
+        private CharacterAttack GetCurrentCharacter(int currentCharacter)
         {
             var levelsInfoCount = levelsConfig.LevelsInfo.Count;
             var result = levelsConfig.LevelsInfo[currentCharacter % levelsInfoCount];
-            return result.CharacterEnemyDetector;
+            return result.CharacterAttack;
         }
 
         private FireZone GetCurrentFireZone(int currentCollider)

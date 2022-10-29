@@ -1,5 +1,4 @@
-﻿using Gameplay.Hero;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gameplay
 {

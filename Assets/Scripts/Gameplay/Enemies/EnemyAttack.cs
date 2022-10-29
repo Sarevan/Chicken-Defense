@@ -1,4 +1,5 @@
 ﻿using System;
+using Gameplay.Character;
 using UnityEngine;
 
 namespace Gameplay.Enemies
@@ -12,8 +13,7 @@ namespace Gameplay.Enemies
 
         private EnemyHealth enemyHealth;
         private bool enemyOnAttackPosition;
-        public float Damage => damage;
-
+        
         private void Update()
         {
             if (!enemyOnAttackPosition)
@@ -34,6 +34,14 @@ namespace Gameplay.Enemies
         private void OnDisable()
         {
             enemyMove.EnemyInHeroAttackZone -= Attack;
+        }
+
+        private void OnTriggerEnter(Collider characterCollider)
+        {
+            if (characterCollider.TryGetComponent(out CharacterHealth character))
+            {
+                character.TakeDamage(damage);
+            }
         }
 
         public void Attack()
