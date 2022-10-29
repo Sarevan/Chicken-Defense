@@ -77,11 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3868216388485059642, guid: 11eb20faa37a39d4993fcb910e562e0e, type: 3}
       propertyPath: max
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3868216388485059642, guid: 11eb20faa37a39d4993fcb910e562e0e, type: 3}
       propertyPath: current
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6425573254459030481, guid: 11eb20faa37a39d4993fcb910e562e0e, type: 3}
       propertyPath: animator
