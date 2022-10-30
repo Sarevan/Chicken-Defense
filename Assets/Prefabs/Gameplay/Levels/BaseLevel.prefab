@@ -314,7 +314,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3249
+  m_VersionIndex: 2942
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -417,13 +417,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - duration: 20
-    timeOneIntervalSpawn: 4
+  - duration: 15
+    timeOneIntervalSpawn: 3
     countSpawnEnemiesAtInterval: 1
     prefabsRandomEnemies:
+    - {fileID: 2486138848670110546, guid: b71c2adb21310d249b5a919e4605e70c, type: 3}
     - {fileID: 6233371904214466766, guid: cd89309e41edf9145a527735533975ed, type: 3}
     - {fileID: 7167582489371199337, guid: e15730c8f71d8cb45b85d5ac4b3d635c, type: 3}
-    countSpawnRandomEnemies: 1
+    countSpawnRandomEnemies: 2
     guaranteedSpawnEnemies: []
     spawnRadius: 15
     spawnPointPosition: {fileID: 4796002502758541106}
@@ -512,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.76
+      value: 7.17
       objectReference: {fileID: 0}
     - target: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
       propertyPath: m_LocalPosition.z
@@ -524,15 +525,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

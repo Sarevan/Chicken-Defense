@@ -9956,7 +9956,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 10
-  m_Center: {x: 0, y: -4.64, z: 0}
+  m_Center: {x: 0, y: -4.7, z: 0}
 --- !u!114 &9161190201340863127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10001,7 +10001,7 @@ MonoBehaviour:
   weapon: {fileID: 4318650576535362410}
   enemyDetector: {fileID: 5179450415500103135}
   sphereCollider: {fileID: -6215479036432181093}
-  animator: {fileID: 0}
+  animator: {fileID: 9161190201340863127}
 --- !u!114 &4318650576535362410
 MonoBehaviour:
   m_ObjectHideFlags: 0

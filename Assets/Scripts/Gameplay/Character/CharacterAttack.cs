@@ -33,8 +33,7 @@ namespace Gameplay.Character
             var target = SelectedEnemyToAttack(enemiesInRadiusDamage);
 
             LookAtEnemy(target.transform);
-
-            animator.PlayAttack();
+            
             Attack(target);
             
             GetDistanceFromEnemy(target);
@@ -65,7 +64,6 @@ namespace Gameplay.Character
             {
                 return true;
             }
-
             return false;
         }
 
@@ -76,7 +74,12 @@ namespace Gameplay.Character
 
         private void Attack(EnemyMove target)
         {
-            weapon.Shoot(target.TargetHit);
+            if (target != null)
+            {
+                animator.PlayAttack();
+                weapon.Shoot(target.TargetHit);
+            }
+            animator.StopAttack();
         }
 
         private void EnemyEnterOnFireZone(Collider enemy)
