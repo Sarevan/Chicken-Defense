@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3948517235348198609}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TowerAttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,11 +23,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5269079199370497852}
-  m_LocalRotation: {x: -0.054044057, y: -0.6826375, z: -0.40503046, w: 0.6058348}
+  m_LocalRotation: {x: -0.054046363, y: -0.68263614, z: -0.40503034, w: 0.60583603}
   m_LocalPosition: {x: 4.3, y: 3.0340002, z: 38.8}
   m_LocalScale: {x: 3.7272053, y: 0.07, z: 4.6586733}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -38.204, y: -85.462, z: -32.048}

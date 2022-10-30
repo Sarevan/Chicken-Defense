@@ -52,8 +52,8 @@ namespace Core
                 isEndWaves = true;
             }
         }
-        
-        public void SetupLevel(int currentLevel)
+
+        private void SetupLevel(int currentLevel)
         {
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
             
@@ -61,7 +61,7 @@ namespace Core
                 Quaternion.identity, level.transform);
             characterAttack.Setup(characterAttack.Position);
 
-            fireZone = Object.Instantiate(GetCurrentFireZone(currentLevel), level.CharacterSpawnPosition,
+            fireZone = Object.Instantiate(GetCurrentFireZone(currentLevel), level.FireZoneSpawnPosition,
                 Quaternion.identity, level.transform);
             fireZone.Setup(characterAttack.SphereCollider);
         }
