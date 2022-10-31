@@ -1,18 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Gameplay.Character
+namespace Gameplay.Tower
 {
-    public class CharacterDeath : MonoBehaviour
+    public class TowerDestroy : MonoBehaviour
     {
-        [SerializeField] private CharacterHealth health;
+        [SerializeField] private TowerHealth health;
         
         [SerializeField] private GameObject tower;
         [SerializeField] private GameObject towerExplosion;
-
-        [SerializeField] private Transform ground;
-        [SerializeField] private float dropSpeed;
-
+        
         [SerializeField] private GameObject explosionFx;
         
         private void Start()
@@ -44,12 +40,6 @@ namespace Gameplay.Character
         {
             tower.SetActive(false);
             towerExplosion.SetActive(true);
-            /*DefenderDrop();*/
         }
-        
-        /*private void DefenderDrop()
-        {
-            character.position = Vector3.MoveTowards(character.position, ground.position, dropSpeed);
-        }*/
     }
 }

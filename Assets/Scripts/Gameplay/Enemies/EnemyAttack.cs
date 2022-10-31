@@ -1,5 +1,6 @@
 ﻿using System;
 using Gameplay.Character;
+using Gameplay.Tower;
 using UnityEngine;
 
 namespace Gameplay.Enemies
@@ -38,7 +39,7 @@ namespace Gameplay.Enemies
 
         private void OnTriggerEnter(Collider characterCollider)
         {
-            if (characterCollider.TryGetComponent(out CharacterHealth character))
+            if (characterCollider.TryGetComponent(out TowerHealth character))
             {
                 character.TakeDamage(damage);
             }

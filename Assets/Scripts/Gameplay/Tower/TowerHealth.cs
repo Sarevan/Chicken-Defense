@@ -1,11 +1,10 @@
 ﻿using System;
-using Core;
 using Logic;
 using UnityEngine;
 
-namespace Gameplay.Character
+namespace Gameplay.Tower
 {
-    public class CharacterHealth : MonoBehaviour, IHealth
+    public class TowerHealth : MonoBehaviour, IHealth
     {
         [SerializeField] private float current;
         [SerializeField] private float max;
