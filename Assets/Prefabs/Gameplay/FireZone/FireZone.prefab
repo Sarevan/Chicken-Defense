@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steps: 100
-  radius: 10
+  radius: 4
   circleRenderer: {fileID: 1701060727323121658}
 --- !u!120 &1701060727323121658
 LineRenderer:
@@ -197,8 +197,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.002002716
-        value: 0.22174019
+        time: 0
+        value: 0.07002205
         inSlope: 0
         outSlope: 0
         tangentMode: 0
