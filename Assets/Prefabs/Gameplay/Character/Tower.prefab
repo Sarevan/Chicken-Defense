@@ -20143,8 +20143,8 @@ MonoBehaviour:
   health: {fileID: 1220674135317932182}
   tower: {fileID: 3862895220048631311}
   towerExplosion: {fileID: 6996723728005421566}
+  character: {fileID: 2141028041018802698, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
   ground: {fileID: 1210480019440799752, guid: 79629aaf20925ca4795639823d2be74b, type: 3}
-  defender: {fileID: 6061262303147085612, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
   dropSpeed: 2
   explosionFx: {fileID: 1892078723244562, guid: 46c83df99b12cdc4a880a7d62beaa83c, type: 3}
 --- !u!1 &8142423607962434687

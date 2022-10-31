@@ -9,14 +9,14 @@ namespace Configs
     public class LevelConfigInfo
     {
         [SerializeField] private Level level;
-        [SerializeField] private CharacterAttack characterAttack;
+        [SerializeField] private Character character;
         [SerializeField] private FireZone fireZone;
 
 
 
         public Level Level => level;
 
-        public CharacterAttack CharacterAttack => characterAttack;
+        public Character Character => character;
 
         public FireZone FireZone => fireZone;
     }

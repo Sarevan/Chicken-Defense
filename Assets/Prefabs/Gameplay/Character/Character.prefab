@@ -9917,6 +9917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6061262303147085612}
   - component: {fileID: -6215479036432181093}
+  - component: {fileID: 8551584619974353751}
   - component: {fileID: 9161190201340863127}
   - component: {fileID: 5179450415500103135}
   - component: {fileID: 2141028041018802698}
@@ -9957,6 +9958,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: -4.7, z: 0}
+--- !u!114 &8551584619974353751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662694691229004342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987c577b6c8047beb124c4648897aa73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 6061262303147085612}
+  sphereCollider: {fileID: -6215479036432181093}
 --- !u!114 &9161190201340863127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9997,10 +10012,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702d4cad2eb94b088868b53904029fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 6061262303147085612}
+  character: {fileID: 8551584619974353751}
   weapon: {fileID: 4318650576535362410}
   enemyDetector: {fileID: 5179450415500103135}
-  sphereCollider: {fileID: -6215479036432181093}
   animator: {fileID: 9161190201340863127}
 --- !u!114 &4318650576535362410
 MonoBehaviour:

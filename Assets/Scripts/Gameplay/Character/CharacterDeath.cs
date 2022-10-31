@@ -9,13 +9,12 @@ namespace Gameplay.Character
         
         [SerializeField] private GameObject tower;
         [SerializeField] private GameObject towerExplosion;
-        
-        /*[SerializeField] private Transform ground;
-        [SerializeField] private Transform defender;
-        [SerializeField] private float dropSpeed;*/
+
+        [SerializeField] private Transform ground;
+        [SerializeField] private float dropSpeed;
 
         [SerializeField] private GameObject explosionFx;
-
+        
         private void Start()
         {
             health.HealthChanged += HealthChanged;
@@ -47,10 +46,10 @@ namespace Gameplay.Character
             towerExplosion.SetActive(true);
             /*DefenderDrop();*/
         }
-
+        
         /*private void DefenderDrop()
         {
-            defender.position = Vector3.MoveTowards(defender.position, ground.position, dropSpeed);
+            character.position = Vector3.MoveTowards(character.position, ground.position, dropSpeed);
         }*/
     }
 }

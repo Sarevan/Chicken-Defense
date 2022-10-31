@@ -9,22 +9,11 @@ namespace Gameplay.Character
 {
     public class CharacterAttack : MonoBehaviour
     {
-        [SerializeField] private Transform character;
+        [SerializeField] private Character character;
         [SerializeField] private Weapon weapon;
-        
         [SerializeField] private TriggerDetector enemyDetector;
-        [SerializeField] private SphereCollider sphereCollider;
-        
         [SerializeField] private CharacterAnimator animator;
         
-        public Vector3 Position => character.position;
-        public SphereCollider SphereCollider => sphereCollider;
-
-        public void Setup(Vector3 position)
-        {
-            character.position = position;
-        }
-
         private void Update()
         {
             if (DetectedEnemiesInRadiusDamage(out var enemiesInRadiusDamage)) 
@@ -32,7 +21,7 @@ namespace Gameplay.Character
             
             var target = SelectedEnemyToAttack(enemiesInRadiusDamage);
 
-            LookAtEnemy(target.transform);
+            character.LookAtEnemy(target.transform);
             
             Attack(target);
             
@@ -87,13 +76,6 @@ namespace Gameplay.Character
             //кэшиование переменной
             // todo сделать кэширование
             //enemyDetector.GetComponentsByColliders<Enemy>()
-        }
-
-        private void LookAtEnemy(Transform enemyPosition)
-        {
-            Vector3 relative = character.InverseTransformPoint(enemyPosition.position);
-            float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
-            character.transform.Rotate(0, angle, 0);
         }
     }
 }
