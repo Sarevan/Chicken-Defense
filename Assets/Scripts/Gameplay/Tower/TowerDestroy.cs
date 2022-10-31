@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Gameplay.Character_hero_;
+using UnityEngine;
 
 namespace Gameplay.Tower
 {
@@ -8,8 +10,16 @@ namespace Gameplay.Tower
         
         [SerializeField] private GameObject tower;
         [SerializeField] private GameObject towerExplosion;
-        
+
         [SerializeField] private GameObject explosionFx;
+        
+        [SerializeField] private Transform ground;
+        [SerializeField] private float dropSpeed;
+        
+        public event Action Destroy;
+        
+        public Transform Ground => ground;
+        public float DropSpeed => dropSpeed;
         
         private void Start()
         {
@@ -40,6 +50,7 @@ namespace Gameplay.Tower
         {
             tower.SetActive(false);
             towerExplosion.SetActive(true);
+            Destroy?.Invoke();
         }
     }
 }

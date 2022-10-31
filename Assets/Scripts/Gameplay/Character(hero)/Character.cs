@@ -1,27 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using Gameplay.Tower;
+using UnityEngine;
 
-namespace Gameplay.Character
+namespace Gameplay.Character_hero_
 {
     public class Character : MonoBehaviour
     {
         [SerializeField] private Transform character;
         [SerializeField] private SphereCollider sphereCollider;
         
-        [SerializeField] private Transform ground;
-        [SerializeField] private float dropSpeed;
-        public Vector3 Position => character.position;
+        public Vector3 Position
+        {
+            get => character.position;
+            set => character.position = value;
+        }
+
         public SphereCollider SphereCollider => sphereCollider;
 
         public void Setup(Vector3 position)
         {
             character.position = position;
         }
-
-        public void CharacterDrop()
-        {
-            character.position = Vector3.MoveTowards(character.position, ground.position, dropSpeed);
-        }
-
+        
         public void LookAtEnemy(Transform enemyPosition)
         {
             Vector3 relative = character.InverseTransformPoint(enemyPosition.position);

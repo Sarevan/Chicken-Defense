@@ -9937,7 +9937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7662694691229004342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32945758, y: 0.23245914, z: 2.9727798}
+  m_LocalPosition: {x: 4.24, y: 6.85, z: 38.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9972,6 +9972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 6061262303147085612}
   sphereCollider: {fileID: -6215479036432181093}
+  tower: {fileID: 1546521184160599664, guid: f5e860c7665e6c9478078f35caf14726, type: 3}
   ground: {fileID: 3948517235348198609, guid: ca8c39aeeb912e4459d433c580631c15, type: 3}
   dropSpeed: 1
 --- !u!114 &9161190201340863127

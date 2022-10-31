@@ -1,7 +1,7 @@
 ﻿using System;
 using Configs;
 using Gameplay;
-using Gameplay.Character;
+using Gameplay.Character_hero_;
 using Gameplay.Tower;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -83,6 +83,8 @@ namespace Core
             tower = Object.Instantiate(GetCurrentTower(currentLevel),level.TowerSpawnPosition,
                 Quaternion.identity,level.transform);
             tower.Setup(tower.Position);
+            
+            tower.TowerDestroy.Destroy += CharacterDrop;
         }
 
         private void FireZoneSpawn(int currentLevel)
@@ -138,6 +140,12 @@ namespace Core
             var levelsInfoCount = levelsConfig.LevelsInfo.Count;
             var result = levelsConfig.LevelsInfo[currentCollider % levelsInfoCount];
             return result.FireZone;
+        }
+
+        private void CharacterDrop()
+        {
+            character.Position = Vector3.MoveTowards(character.Position, tower.TowerDestroy.Ground.position, tower.TowerDestroy.DropSpeed);
+            tower.TowerDestroy.Destroy -= CharacterDrop;
         }
     }
 }

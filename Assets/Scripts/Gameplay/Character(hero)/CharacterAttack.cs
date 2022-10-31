@@ -5,7 +5,7 @@ using Gameplay.Enemies;
 using Gameplay.Shooting.Weapons;
 using UnityEngine;
 
-namespace Gameplay.Character
+namespace Gameplay.Character_hero_
 {
     public class CharacterAttack : MonoBehaviour
     {
