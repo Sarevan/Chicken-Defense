@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steps: 100
-  radius: 4
+  radius: 6
   circleRenderer: {fileID: 1701060727323121658}
 --- !u!120 &1701060727323121658
 LineRenderer:

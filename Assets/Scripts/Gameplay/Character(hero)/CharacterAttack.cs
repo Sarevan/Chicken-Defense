@@ -20,11 +20,10 @@ namespace Gameplay.Character_hero_
                 return;
             
             var target = SelectedEnemyToAttack(enemiesInRadiusDamage);
-
+            
             character.LookAtEnemy(target.transform);
             
             Attack(target);
-            
             GetDistanceFromEnemy(target);
         }
 

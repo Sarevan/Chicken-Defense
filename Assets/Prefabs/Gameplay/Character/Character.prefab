@@ -9956,7 +9956,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: -4.7, z: 0}
 --- !u!114 &8551584619974353751
 MonoBehaviour:
@@ -9972,9 +9972,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 6061262303147085612}
   sphereCollider: {fileID: -6215479036432181093}
-  tower: {fileID: 1546521184160599664, guid: f5e860c7665e6c9478078f35caf14726, type: 3}
-  ground: {fileID: 3948517235348198609, guid: ca8c39aeeb912e4459d433c580631c15, type: 3}
-  dropSpeed: 1
 --- !u!114 &9161190201340863127
 MonoBehaviour:
   m_ObjectHideFlags: 0
