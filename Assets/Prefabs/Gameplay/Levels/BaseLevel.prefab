@@ -314,7 +314,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2948
+  m_VersionIndex: 2963
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -417,16 +417,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - duration: 15
+  - duration: 10
     timeOneIntervalSpawn: 3
     countSpawnEnemiesAtInterval: 1
     prefabsRandomEnemies:
-    - {fileID: 2486138848670110546, guid: b71c2adb21310d249b5a919e4605e70c, type: 3}
     - {fileID: 6233371904214466766, guid: cd89309e41edf9145a527735533975ed, type: 3}
+    - {fileID: 2486138848670110546, guid: b71c2adb21310d249b5a919e4605e70c, type: 3}
     - {fileID: 7167582489371199337, guid: e15730c8f71d8cb45b85d5ac4b3d635c, type: 3}
-    countSpawnRandomEnemies: 2
+    countSpawnRandomEnemies: 1
     guaranteedSpawnEnemies: []
-    spawnRadius: 15
+    spawnRadius: 7
     spawnPointPosition: {fileID: 4796002502758541106}
   characterSpawnPosition: {fileID: 7874551034242164434}
   towerSpawnPosition: {fileID: 4796002502758541106}

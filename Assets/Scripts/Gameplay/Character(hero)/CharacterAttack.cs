@@ -15,6 +15,8 @@ namespace Gameplay.Character_hero_
         [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private CharacterAnimator animator;
 
+        [SerializeField] private float timeAttack = 0.1f;
+       
         private bool isAttack;
 
         private void Update()
@@ -81,7 +83,7 @@ namespace Gameplay.Character_hero_
         {
             isAttack = true;
             animator.PlayAttack();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(timeAttack);
             animator.StopAttack();
             isAttack = false;
         }
