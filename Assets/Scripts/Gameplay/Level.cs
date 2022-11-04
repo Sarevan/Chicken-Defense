@@ -16,8 +16,7 @@ namespace Gameplay
         public Vector3 CharacterSpawnPosition => characterSpawnPosition.position;
         public Vector3 FireZoneSpawnPosition => fireZoneSpawnPosition.position;
         public Vector3 TowerSpawnPosition => towerSpawnPosition.position;
-
-
+        
         public List<Wave> Waves => waves;
         public static Transform Root => Instance.transform;
         public Transform TowerAttackPosition => towerAttackPosition;

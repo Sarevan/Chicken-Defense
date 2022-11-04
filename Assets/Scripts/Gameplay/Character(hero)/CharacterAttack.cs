@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Collision;
 using Gameplay.Enemies;
@@ -13,17 +14,22 @@ namespace Gameplay.Character_hero_
         [SerializeField] private Weapon weapon;
         [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private CharacterAnimator animator;
-        
+
+        private bool isAttack;
+
         private void Update()
         {
-            if (DetectedEnemiesInRadiusDamage(out var enemiesInRadiusDamage)) 
+            if (DetectedEnemiesInRadiusDamage(out var enemiesInRadiusDamage))
                 return;
-            
+
             var target = SelectedEnemyToAttack(enemiesInRadiusDamage);
-            
+
             character.LookAtEnemy(target.transform);
             
-            Attack(target);
+            if(isAttack)
+                return;
+            
+            Shoot(target);
             GetDistanceFromEnemy(target);
         }
 
@@ -40,7 +46,8 @@ namespace Gameplay.Character_hero_
         private EnemyMove SelectedEnemyToAttack(List<EnemyMove> detectedEnemiesInRadiusDamage)
         {
             EnemyMove target = detectedEnemiesInRadiusDamage
-                .Aggregate((enemy, nextEnemy) => GetDistanceFromEnemy(enemy) < GetDistanceFromEnemy(nextEnemy) ? enemy : nextEnemy);
+                .Aggregate((enemy, nextEnemy) =>
+                    GetDistanceFromEnemy(enemy) < GetDistanceFromEnemy(nextEnemy) ? enemy : nextEnemy);
             return target;
         }
 
@@ -52,6 +59,7 @@ namespace Gameplay.Character_hero_
             {
                 return true;
             }
+
             return false;
         }
 
@@ -60,15 +68,24 @@ namespace Gameplay.Character_hero_
             return Vector3.Distance(enemyMove.transform.position, transform.position);
         }
 
-        private void Attack(EnemyMove target)
+        private void Shoot(EnemyMove target)
         {
-            if (target != null)
+            if (target != null && !isAttack)
             {
-                animator.PlayAttack();
                 weapon.Shoot(target.TargetHit);
+                StartCoroutine(Attack());
             }
-            animator.StopAttack();
         }
+
+        IEnumerator Attack()
+        {
+            isAttack = true;
+            animator.PlayAttack();
+            yield return new WaitForSeconds(0.1f);
+            animator.StopAttack();
+            isAttack = false;
+        }
+
 
         private void EnemyEnterOnFireZone(Collider enemy)
         {

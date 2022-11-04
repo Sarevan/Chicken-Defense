@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].duration
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].timeOneIntervalSpawn
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].countSpawnRandomEnemies
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].prefabsRandomEnemies.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].prefabsRandomEnemies.Array.data[0]
@@ -30,11 +30,11 @@ PrefabInstance:
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].prefabsRandomEnemies.Array.data[1]
       value: 
-      objectReference: {fileID: 7167582489371199337, guid: e15730c8f71d8cb45b85d5ac4b3d635c, type: 3}
+      objectReference: {fileID: 2486138848670110546, guid: b71c2adb21310d249b5a919e4605e70c, type: 3}
     - target: {fileID: 2644990923565931653, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: waves.Array.data[0].prefabsRandomEnemies.Array.data[2]
       value: 
-      objectReference: {fileID: 2486138848670110546, guid: b71c2adb21310d249b5a919e4605e70c, type: 3}
+      objectReference: {fileID: 7167582489371199337, guid: e15730c8f71d8cb45b85d5ac4b3d635c, type: 3}
     - target: {fileID: 2930678449475020980, guid: 2c9d51d088e6cf44a8fd540a951cfadb, type: 3}
       propertyPath: m_RootOrder
       value: 0
