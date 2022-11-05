@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Timers;
 using Gameplay.Enemies;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
+using Timer = Utils.Timer;
 
 namespace Gameplay
 {
@@ -26,6 +28,7 @@ namespace Gameplay
 
         [SerializeField] private float spawnRadius = 0.5f;
         [SerializeField] private Transform spawnPointPosition;
+        [SerializeField] private GameObject portalEnemyFX;
 
 
         private float startTime;
@@ -94,7 +97,8 @@ namespace Gameplay
             {
                 Vector3 pos = RandomCircle(center, spawnRadius);
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center);
-                
+
+                Object.Instantiate(portalEnemyFX,pos + Vector3.up,rotation);
                 var enemy = Object.Instantiate(randomEnemy, pos, rotation);
                 enemy.Setup(characterTransform);
                 

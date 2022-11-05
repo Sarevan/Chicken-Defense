@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - duration: 10
+  - duration: 40
     timeOneIntervalSpawn: 3
     countSpawnEnemiesAtInterval: 1
     prefabsRandomEnemies:
@@ -426,8 +426,9 @@ MonoBehaviour:
     - {fileID: 7167582489371199337, guid: e15730c8f71d8cb45b85d5ac4b3d635c, type: 3}
     countSpawnRandomEnemies: 1
     guaranteedSpawnEnemies: []
-    spawnRadius: 7
+    spawnRadius: 5.5
     spawnPointPosition: {fileID: 4796002502758541106}
+    portalEnemyFX: {fileID: 1845240806346120, guid: 9f61d4b09f6bd8744be098a8f495310d, type: 3}
   characterSpawnPosition: {fileID: 7874551034242164434}
   towerSpawnPosition: {fileID: 4796002502758541106}
   towerAttackPosition: {fileID: 4796002502758541106}

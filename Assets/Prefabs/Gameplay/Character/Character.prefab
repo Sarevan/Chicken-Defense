@@ -9956,7 +9956,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 4
   m_Center: {x: 0, y: -4.7, z: 0}
 --- !u!114 &8551584619974353751
 MonoBehaviour:
@@ -10016,6 +10016,7 @@ MonoBehaviour:
   weapon: {fileID: 4318650576535362410}
   enemyDetector: {fileID: 5179450415500103135}
   animator: {fileID: 9161190201340863127}
+  timeAttack: 0.1
 --- !u!114 &4318650576535362410
 MonoBehaviour:
   m_ObjectHideFlags: 0
