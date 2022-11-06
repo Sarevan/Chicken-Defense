@@ -20140,8 +20140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c560f0351db4a3a82b8a780d0ab763a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 5
-  max: 5
+  healthBar: {fileID: 9001030204516038510, guid: 4daf7b4cedc8cb248bd0ea3ad9fad403, type: 3}
+  current: 100
+  max: 100
   dustFX: {fileID: 100000, guid: 29f0684e02f59b748a25dcff64a2cb13, type: 3}
 --- !u!114 &1546521184160599664
 MonoBehaviour:
