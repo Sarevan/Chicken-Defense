@@ -4,7 +4,7 @@ namespace UI.ScreensGeneration
 {
     public class SingletonBehaviour<T> : MonoBehaviour where T : SingletonBehaviour<T>
     {
-        protected static T Instance { get; private set; }
+        public static T Instance { get; private set; }
 
         void Awake()
         {
