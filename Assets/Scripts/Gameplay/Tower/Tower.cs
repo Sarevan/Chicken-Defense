@@ -6,14 +6,15 @@ namespace Gameplay.Tower
     {
         [SerializeField] private Transform tower;
         [SerializeField] private TowerDestroy towerDestroy;
-        public Vector3 Position => tower.position;
+        [SerializeField] private TowerHealth towerHealth;
 
+        public Vector3 Position => tower.position;
         public TowerDestroy TowerDestroy => towerDestroy;
+        public TowerHealth TowerHealth => towerHealth;
 
         public void Setup(Vector3 towerPosition)
         {
             tower.position = towerPosition;
-       
         }
     }
 }

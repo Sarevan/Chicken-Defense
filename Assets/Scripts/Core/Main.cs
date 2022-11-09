@@ -1,6 +1,4 @@
-﻿using System;
-using Configs;
-using Gameplay.Enemies;
+﻿using Configs;
 using UI.ScreensGeneration;
 using UI.ScreensGeneration.Screens;
 using UnityEngine;
@@ -21,7 +19,7 @@ namespace Core
 
         private void Update()
         {
-         game.Update();
+            game.Update();
         }
 
         private void GoToMenu()
@@ -32,6 +30,7 @@ namespace Core
         private void GameScreen()
         {
             GameScreen gameMenu = ScreenManager.Instance.ShowScreen<GameScreen>();
+            gameMenu.Setup(game.Tower.TowerHealth);
         }
     }
 }

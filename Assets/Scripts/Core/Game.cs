@@ -2,6 +2,7 @@
 using Gameplay;
 using Gameplay.Character_hero_;
 using Gameplay.Tower;
+using UI.Bars;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -13,14 +14,16 @@ namespace Core
         private Character character;
         private Tower tower;
         private FireZone fireZone;
-        
+
         private Level level;
 
         private int currentIndexWave;
         private float startTime;
         private float totalTime;
         private bool isEndWaves;
-        
+
+        public Tower Tower => tower;
+
         public Game(LevelsConfig levelsConfig)
         {
             this.levelsConfig = levelsConfig;
@@ -31,14 +34,14 @@ namespace Core
 
             SetupLevel(levelsConfig.LevelsInfo.Count);
         }
-        
+
         public void Update()
         {
             if (isEndWaves)
             {
                 return;
             }
-            
+
             var currentWave = GetCurrentLevelWave();
             if (currentWave != null)
             {
@@ -46,6 +49,7 @@ namespace Core
                 {
                     currentWave.Setup(level.TowerAttackPosition);
                 }
+
                 currentWave.Update();
             }
             else
@@ -57,11 +61,11 @@ namespace Core
         private void SetupLevel(int currentLevel)
         {
             LevelSpawn(currentLevel);
-            
+
             CharacterSpawn(currentLevel);
 
             TowerSpawn(currentLevel);
-            
+
             FireZoneSpawn(currentLevel);
         }
 
@@ -79,10 +83,10 @@ namespace Core
 
         private void TowerSpawn(int currentLevel)
         {
-            tower = Object.Instantiate(GetCurrentTower(currentLevel),level.TowerSpawnPosition,
-                Quaternion.identity,level.transform);
+            tower = Object.Instantiate(GetCurrentTower(currentLevel), level.TowerSpawnPosition,
+                Quaternion.identity, level.transform);
             tower.Setup(tower.Position);
-            
+
             tower.TowerDestroy.Destroy += CharacterDrop;
         }
 
@@ -98,8 +102,8 @@ namespace Core
             if (currentIndexWave >= level.Waves.Count)
             {
                 return null;
-            }   
-          
+            }
+
             if (totalTime + level.Waves[currentIndexWave].Duration <= Time.time - startTime)
             {
                 totalTime += level.Waves[currentIndexWave].Duration;
@@ -143,7 +147,8 @@ namespace Core
 
         private void CharacterDrop()
         {
-            character.Position = Vector3.MoveTowards(character.Position, tower.TowerDestroy.Ground.position, tower.TowerDestroy.DropSpeed);
+            character.Position = Vector3.MoveTowards(character.Position, Tower.TowerDestroy.Ground.position,
+                Tower.TowerDestroy.DropSpeed);
             tower.TowerDestroy.Destroy -= CharacterDrop;
         }
     }

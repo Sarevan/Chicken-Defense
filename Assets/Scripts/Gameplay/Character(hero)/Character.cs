@@ -1,6 +1,4 @@
-﻿using System;
-using Gameplay.Tower;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gameplay.Character_hero_
 {

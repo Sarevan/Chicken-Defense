@@ -20128,6 +20128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 8935032457919258989}
   towerDestroy: {fileID: 1546521184160599664}
+  towerHealth: {fileID: 1220674135317932182}
 --- !u!114 &1220674135317932182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20140,7 +20141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c560f0351db4a3a82b8a780d0ab763a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 944912086635190639, guid: bc0e07af4e03a4e46978a78c86b2e301, type: 3}
+  gameScreen: {fileID: -2963627090974673217, guid: dfdb4c84c7568f74083fc6dab27f0f67, type: 3}
   current: 100
   max: 100
   dustFX: {fileID: 100000, guid: 29f0684e02f59b748a25dcff64a2cb13, type: 3}
