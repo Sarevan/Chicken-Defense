@@ -7,9 +7,17 @@ namespace UI.ScreensGeneration.Screens
 {
     public class GameScreen : BaseScreen
     {
-        [SerializeField] private GameObject[] tabs;
+        [SerializeField] private GameObject attackTab;
+        [SerializeField] private GameObject protectedTab;
+        [SerializeField] private GameObject experienceTab;
+        [SerializeField] private Button attackTabButton;
+        [SerializeField] private Button protectedTabButton;
+        [SerializeField] private Button experienceTabButton;
+
         [SerializeField] private HealthBar healthBar;
+
         private TowerHealth towerHealth;
+        private GameObject[] tabs;
 
         public void Setup(TowerHealth towerHealth)
         {
@@ -19,6 +27,23 @@ namespace UI.ScreensGeneration.Screens
             towerHealth.CurrentHealthBarChanged += ChangedCurrentHealthBar;
         }
 
+        private void Awake()
+        {
+            tabs = new GameObject[]
+            {
+                attackTab,
+                protectedTab,
+                experienceTab,
+            };
+        }
+
+        private void OnEnable()
+        {
+            attackTabButton.onClick.AddListener(AttackTabButtonOnClick);
+            protectedTabButton.onClick.AddListener(ProtectedTabButtonOnClick);
+            experienceTabButton.onClick.AddListener(ExperienceTabButtonOnClick);
+        }
+
         private void OnDisable()
         {
             if (towerHealth != null)
@@ -26,6 +51,24 @@ namespace UI.ScreensGeneration.Screens
                 towerHealth.MaxHealthBarChanged -= ChangedMaxHealthBar;
                 towerHealth.CurrentHealthBarChanged -= ChangedCurrentHealthBar;
             }
+        }
+
+        private void AttackTabButtonOnClick()
+        {
+            HideAllTabs();
+            attackTab.SetActive(true);
+        }
+
+        private void ProtectedTabButtonOnClick()
+        {
+            HideAllTabs();
+            protectedTab.SetActive(true);
+        }
+
+        private void ExperienceTabButtonOnClick()
+        {
+            HideAllTabs();
+            experienceTab.SetActive(true);
         }
 
         private void ChangedMaxHealthBar()
@@ -38,15 +81,11 @@ namespace UI.ScreensGeneration.Screens
             healthBar.SetHealth(towerHealth.Current);
         }
 
-        public void OnTabSwitch(GameObject tab)
+        private void HideAllTabs()
         {
-            tab.SetActive(true);
-            for (int number = 0; number < tabs.Length; number++)
+            foreach (var tab in tabs)
             {
-                if (tabs[number] != tab)
-                {
-                    tabs[number].SetActive(false);
-                }
+                tab.SetActive(false);
             }
         }
     }

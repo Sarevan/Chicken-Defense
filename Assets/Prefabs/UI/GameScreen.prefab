@@ -821,12 +821,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7696164a215a4c5c8b69beaf6ca78232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabs:
-  - {fileID: 6541180026395949506}
-  - {fileID: 5081860393753612758}
-  - {fileID: 1406765951690918652}
+  attackTab: {fileID: 6541180026395949506}
+  protectedTab: {fileID: 5081860393753612758}
+  experienceTab: {fileID: 1406765951690918652}
+  attackTabButton: {fileID: 7403437506812387065}
+  protectedTabButton: {fileID: 2973260269332958726}
+  experienceTabButton: {fileID: 5279766443699506025}
   healthBar: {fileID: 8836552592786067066}
-  towerHealth: {fileID: 1220674135317932182, guid: f5e860c7665e6c9478078f35caf14726, type: 3}
 --- !u!1 &658107426260168966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,7 +1409,7 @@ GameObject:
   - component: {fileID: 1430967725185900978}
   - component: {fileID: 4415958801254940509}
   m_Layer: 5
-  m_Name: Tab3
+  m_Name: TabI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2809,7 +2810,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2834,13 +2835,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2963627090974673217}
-        m_TargetAssemblyTypeName: UI.ScreensGeneration.Screens.GameScreen, Assembly-CSharp
-        m_MethodName: OnTabSwitch
-        m_Mode: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 6541180026395949506}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5201,7 +5202,7 @@ GameObject:
   - component: {fileID: 7686743617455023018}
   - component: {fileID: 8661400341346063945}
   m_Layer: 5
-  m_Name: Tab2
+  m_Name: TabH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5346,19 +5347,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6259912912208891946}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -2963627090974673217}
-        m_TargetAssemblyTypeName: UI.ScreensGeneration.Screens.GameScreen, Assembly-CSharp
-        m_MethodName: OnTabSwitch
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1406765951690918652}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5138507739637615598
 GameObject:
   m_ObjectHideFlags: 0
@@ -5619,19 +5608,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5132014645057340892}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -2963627090974673217}
-        m_TargetAssemblyTypeName: UI.ScreensGeneration.Screens.GameScreen, Assembly-CSharp
-        m_MethodName: OnTabSwitch
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 5081860393753612758}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5436881078957206014
 GameObject:
   m_ObjectHideFlags: 0
@@ -7236,7 +7213,7 @@ GameObject:
   - component: {fileID: 596550618462353081}
   - component: {fileID: 8559462149675110933}
   m_Layer: 5
-  m_Name: Tab1
+  m_Name: TabA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
