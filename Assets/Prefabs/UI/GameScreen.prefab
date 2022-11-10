@@ -9810,25 +9810,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3026191320044284494, guid: 3fb0d98d41cfa8f4bb5bbb23a5547036, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026191320044284494, guid: 3fb0d98d41cfa8f4bb5bbb23a5547036, type: 3}
-      propertyPath: m_MaxValue
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7357379729937366521, guid: 3fb0d98d41cfa8f4bb5bbb23a5547036, type: 3}
       propertyPath: m_Name
       value: HealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 7537102457365324011, guid: 3fb0d98d41cfa8f4bb5bbb23a5547036, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7537102457365324011, guid: 3fb0d98d41cfa8f4bb5bbb23a5547036, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb0d98d41cfa8f4bb5bbb23a5547036, type: 3}

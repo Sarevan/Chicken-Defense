@@ -20141,9 +20141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c560f0351db4a3a82b8a780d0ab763a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScreen: {fileID: -2963627090974673217, guid: dfdb4c84c7568f74083fc6dab27f0f67, type: 3}
-  current: 100
-  max: 100
+  current: 10
+  max: 10
   dustFX: {fileID: 100000, guid: 29f0684e02f59b748a25dcff64a2cb13, type: 3}
 --- !u!114 &1546521184160599664
 MonoBehaviour:

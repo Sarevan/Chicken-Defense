@@ -31,6 +31,7 @@ namespace Core
         {
             GameScreen gameMenu = ScreenManager.Instance.ShowScreen<GameScreen>();
             gameMenu.Setup(game.Tower.TowerHealth);
+            gameMenu.UpdatedHealthValue();
         }
     }
 }

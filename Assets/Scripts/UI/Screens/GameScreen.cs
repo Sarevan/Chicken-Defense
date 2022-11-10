@@ -27,6 +27,11 @@ namespace UI.ScreensGeneration.Screens
             towerHealth.CurrentHealthBarChanged += ChangedCurrentHealthBar;
         }
 
+        public void UpdatedHealthValue()
+        {
+            healthBar.TextHealthValue.SetText($"{towerHealth.Max}/{towerHealth.Current}");
+        }
+
         private void Awake()
         {
             tabs = new GameObject[]
@@ -78,6 +83,7 @@ namespace UI.ScreensGeneration.Screens
 
         private void ChangedCurrentHealthBar()
         {
+            UpdatedHealthValue();
             healthBar.SetHealth(towerHealth.Current);
         }
 
