@@ -15,7 +15,7 @@ namespace Gameplay.Tower
         public event Action MaxHealthBarChanged;
         public event Action CurrentHealthBarChanged;
 
-        public float Current { get => current; set => current = value; }
+        public float Current { get => current; set => current = Mathf.Clamp(value,0,max); }
         public float Max {get => max; set => max = value;}
 
         
