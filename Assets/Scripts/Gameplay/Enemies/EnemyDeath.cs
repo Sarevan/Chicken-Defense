@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Gameplay.Loot;
 using UnityEngine;
 
 namespace Gameplay.Enemies
@@ -10,6 +11,7 @@ namespace Gameplay.Enemies
         [SerializeField] private EnemyAnimator animator;
 
         [SerializeField] private GameObject deathFx;
+        [SerializeField] private LootElements loot;
 
         public event Action Happened;
 
@@ -27,11 +29,14 @@ namespace Gameplay.Enemies
         private void Die()
         {
             health.HealthChanged -= HealthChanged;
-            
+
             animator.PlayDeath();
-            
-            SpawnDeathFx();
+
+            loot.Coin.SetActive(true);
+            loot.DropCoin();
+
             StartCoroutine(DestroyTimer());
+            SpawnDeathFx();
         }
 
         private void SpawnDeathFx()
