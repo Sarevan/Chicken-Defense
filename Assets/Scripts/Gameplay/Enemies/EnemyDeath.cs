@@ -13,6 +13,7 @@ namespace Gameplay.Enemies
         [SerializeField] private GameObject deathFx;
         [SerializeField] private LootElements loot;
 
+        // To get dependency from loot and take then method "DropCoin"
         public event Action Happened;
 
         private void Start()
@@ -31,9 +32,8 @@ namespace Gameplay.Enemies
             health.HealthChanged -= HealthChanged;
 
             animator.PlayDeath();
-
-            loot.Coin.SetActive(true);
-            loot.DropCoin();
+            
+            /*loot.DropCoin();*/
 
             StartCoroutine(DestroyTimer());
             SpawnDeathFx();

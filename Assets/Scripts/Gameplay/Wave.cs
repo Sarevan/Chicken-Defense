@@ -90,7 +90,7 @@ namespace Gameplay
         private void SpawnRandomEnemy()
         {
             float deltaTimeAtEnemy = duration / countSpawnRandomEnemies;
-            var randomEnemy = prefabsRandomEnemies[Random.Range(0, prefabsRandomEnemies.Count)];
+            EnemyMove randomEnemy = prefabsRandomEnemies[Random.Range(0, prefabsRandomEnemies.Count)];
             int countEnemies = countSpawnRandomEnemies + guaranteedSpawnEnemies.Sum(enemiesBox => enemiesBox.Count);
             Vector3 center = spawnPointPosition.position;
             for (int i = 0; i < countSpawnEnemiesAtInterval; i++)
@@ -99,7 +99,8 @@ namespace Gameplay
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center);
 
                 Object.Instantiate(portalEnemyFX,pos + Vector3.up,rotation);
-                var enemy = Object.Instantiate(randomEnemy, pos, rotation);
+                
+                EnemyMove enemy = Object.Instantiate(randomEnemy, pos, rotation);
                 enemy.Setup(characterTransform);
                 
                 EnemyLookOnHero(enemy);
