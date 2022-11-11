@@ -12,7 +12,7 @@ namespace Core
         {
             BindCharacter();
         }
-
+        
         private void BindCharacter()
         {
             Character characterPrefab = Container

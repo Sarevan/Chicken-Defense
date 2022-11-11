@@ -11,7 +11,7 @@ namespace Core
     public class Game
     {
         private LevelsConfig levelsConfig;
-        private Character character;
+        /*private Character character;*/
         private Tower tower;
         private FireZone fireZone;
 

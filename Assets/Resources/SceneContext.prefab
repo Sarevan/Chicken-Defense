@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1167822605269374658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.7095836, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,4 +78,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSpawnPosition: {fileID: 0}
-  character: {fileID: 7662694691229004342, guid: e7829c0a41a687941bc5ec156ab9a7fe, type: 3}
+  character: {fileID: 7662694691229004342, guid: 81fd11fad9a8bcf4d8a11dc7e482113a, type: 3}
