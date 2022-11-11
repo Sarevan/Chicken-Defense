@@ -5,12 +5,13 @@ using Gameplay.Collision;
 using Gameplay.Enemies;
 using Gameplay.Shooting.Weapons;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Character_hero_
 {
     public class CharacterAttack : MonoBehaviour
     {
-        [SerializeField] private Character character;
+        /*[SerializeField] private Character character;*/
         [SerializeField] private Weapon weapon;
         [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private CharacterAnimator animator;
@@ -19,6 +20,11 @@ namespace Gameplay.Character_hero_
        
         private bool isAttack;
 
+       
+        /*public void Setup(Character character)
+        {
+            this.character =  character.transform;
+        }*/
         private void Update()
         {
             if (DetectedEnemiesInRadiusDamage(out var enemiesInRadiusDamage))
@@ -26,7 +32,7 @@ namespace Gameplay.Character_hero_
 
             var target = SelectedEnemyToAttack(enemiesInRadiusDamage);
 
-            character.LookAtEnemy(target.transform);
+            /*character.LookAtEnemy(target.transform);*/
             
             if(isAttack)
                 return;

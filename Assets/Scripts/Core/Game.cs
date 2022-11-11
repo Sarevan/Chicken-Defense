@@ -61,41 +61,32 @@ namespace Core
         private void SetupLevel(int currentLevel)
         {
             LevelSpawn(currentLevel);
-
-            CharacterSpawn(currentLevel);
-
+            
             TowerSpawn(currentLevel);
 
-            FireZoneSpawn(currentLevel);
+            /*FireZoneSpawn(currentLevel);*/
         }
 
         private void LevelSpawn(int currentLevel)
         {
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
         }
-
-        private void CharacterSpawn(int currentLevel)
-        {
-            character = Object.Instantiate(GetCurrentCharacter(currentLevel), level.CharacterSpawnPosition,
-                Quaternion.identity, level.transform);
-            character.Setup(character.Position);
-        }
-
+        
         private void TowerSpawn(int currentLevel)
         {
             tower = Object.Instantiate(GetCurrentTower(currentLevel), level.TowerSpawnPosition,
                 Quaternion.identity, level.transform);
             tower.Setup(tower.Position);
 
-            tower.TowerDestroy.Destroy += CharacterDrop;
+            /*tower.TowerDestroy.Destroy += CharacterDrop;*/
         }
 
-        private void FireZoneSpawn(int currentLevel)
+        /*private void FireZoneSpawn(int currentLevel)
         {
             fireZone = Object.Instantiate(GetCurrentFireZone(currentLevel), level.FireZoneSpawnPosition,
                 Quaternion.identity, level.transform);
             fireZone.Setup(character.SphereCollider);
-        }
+        }*/
 
         private Wave GetCurrentLevelWave()
         {
@@ -123,14 +114,7 @@ namespace Core
             var result = levelsConfig.LevelsInfo[currentLevel % levelsInfoCount];
             return result.Level;
         }
-
-        private Character GetCurrentCharacter(int currentCharacter)
-        {
-            var levelsInfoCount = levelsConfig.LevelsInfo.Count;
-            var result = levelsConfig.LevelsInfo[currentCharacter % levelsInfoCount];
-            return result.Character;
-        }
-
+        
         private Tower GetCurrentTower(int currentTower)
         {
             var levelsInfoCount = levelsConfig.LevelsInfo.Count;
@@ -145,11 +129,11 @@ namespace Core
             return result.FireZone;
         }
 
-        private void CharacterDrop()
+        /*private void CharacterDrop()
         {
             character.Position = Vector3.MoveTowards(character.Position, Tower.TowerDestroy.Ground.position,
                 Tower.TowerDestroy.DropSpeed);
             tower.TowerDestroy.Destroy -= CharacterDrop;
-        }
+        }*/
     }
 }

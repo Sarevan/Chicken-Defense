@@ -1,23 +1,19 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Character_hero_
 {
     public class Character : MonoBehaviour
     {
-        [SerializeField] private Transform character;
-        [SerializeField] private SphereCollider sphereCollider;
+        /*[SerializeField] private SphereCollider sphereCollider;*/
+        private Transform character;
         
-        public Vector3 Position
-        {
-            get => character.position;
-            set => character.position = value;
-        }
+        /*public SphereCollider SphereCollider => sphereCollider;*/
 
-        public SphereCollider SphereCollider => sphereCollider;
-
-        public void Setup(Vector3 position)
+        
+        public void Setup(Character character)
         {
-            character.position = position;
+            this.character =  character.transform;
         }
         
         public void LookAtEnemy(Transform enemyPosition)
