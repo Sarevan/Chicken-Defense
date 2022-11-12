@@ -77,5 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bb39f53fe14b9abf3e628bfe8eb163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSpawnPosition: {fileID: 0}
   character: {fileID: 7662694691229004342, guid: 81fd11fad9a8bcf4d8a11dc7e482113a, type: 3}
+  tower: {fileID: 8121199602288081879, guid: f5e860c7665e6c9478078f35caf14726, type: 3}
+  towerSpawnPosition: {fileID: 0}
+  characterSpawnPosition: {fileID: 0}

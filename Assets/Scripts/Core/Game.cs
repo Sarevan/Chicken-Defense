@@ -1,8 +1,6 @@
 ﻿using Configs;
 using Gameplay;
-using Gameplay.Character_hero_;
 using Gameplay.Tower;
-using UI.Bars;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -12,7 +10,6 @@ namespace Core
     {
         private LevelsConfig levelsConfig;
         /*private Character character;*/
-        private Tower tower;
         private FireZone fireZone;
 
         private Level level;
@@ -21,9 +18,7 @@ namespace Core
         private float startTime;
         private float totalTime;
         private bool isEndWaves;
-
-        public Tower Tower => tower;
-
+        
         public Game(LevelsConfig levelsConfig)
         {
             this.levelsConfig = levelsConfig;
@@ -62,8 +57,6 @@ namespace Core
         {
             LevelSpawn(currentLevel);
             
-            TowerSpawn(currentLevel);
-
             /*FireZoneSpawn(currentLevel);*/
         }
 
@@ -72,15 +65,6 @@ namespace Core
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
         }
         
-        private void TowerSpawn(int currentLevel)
-        {
-            tower = Object.Instantiate(GetCurrentTower(currentLevel), level.TowerSpawnPosition,
-                Quaternion.identity, level.transform);
-            tower.Setup(tower.Position);
-
-            /*tower.TowerDestroy.Destroy += CharacterDrop;*/
-        }
-
         /*private void FireZoneSpawn(int currentLevel)
         {
             fireZone = Object.Instantiate(GetCurrentFireZone(currentLevel), level.FireZoneSpawnPosition,
@@ -115,13 +99,6 @@ namespace Core
             return result.Level;
         }
         
-        private Tower GetCurrentTower(int currentTower)
-        {
-            var levelsInfoCount = levelsConfig.LevelsInfo.Count;
-            var result = levelsConfig.LevelsInfo[currentTower % levelsInfoCount];
-            return result.Tower;
-        }
-
         private FireZone GetCurrentFireZone(int currentCollider)
         {
             var levelsInfoCount = levelsConfig.LevelsInfo.Count;

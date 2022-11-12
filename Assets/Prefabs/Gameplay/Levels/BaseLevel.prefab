@@ -430,7 +430,6 @@ MonoBehaviour:
     spawnRadius: 5.5
     spawnPointPosition: {fileID: 4796002502758541106}
     portalEnemyFX: {fileID: 1845240806346120, guid: 9f61d4b09f6bd8744be098a8f495310d, type: 3}
-  towerSpawnPosition: {fileID: 4796002502758541106}
   towerAttackPosition: {fileID: 4796002502758541106}
   fireZoneSpawnPosition: {fileID: 6442242504277354434}
 --- !u!1001 &1218160095231821621
@@ -612,6 +611,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1167822605269374685, guid: 1a8b62cd4f0cc5844996161535dfbec9, type: 3}
+      propertyPath: towerSpawnPosition
+      value: 
+      objectReference: {fileID: 4796002502758541106}
     - target: {fileID: 1167822605269374685, guid: 1a8b62cd4f0cc5844996161535dfbec9, type: 3}
       propertyPath: characterSpawnPosition
       value: 
