@@ -10,7 +10,6 @@ namespace Core
     {
         private LevelsConfig levelsConfig;
         /*private Character character;*/
-        private FireZone fireZone;
 
         private Level level;
 
@@ -56,8 +55,6 @@ namespace Core
         private void SetupLevel(int currentLevel)
         {
             LevelSpawn(currentLevel);
-            
-            /*FireZoneSpawn(currentLevel);*/
         }
 
         private void LevelSpawn(int currentLevel)
@@ -65,13 +62,6 @@ namespace Core
             level = Object.Instantiate(GetCurrentLevel(currentLevel));
         }
         
-        /*private void FireZoneSpawn(int currentLevel)
-        {
-            fireZone = Object.Instantiate(GetCurrentFireZone(currentLevel), level.FireZoneSpawnPosition,
-                Quaternion.identity, level.transform);
-            fireZone.Setup(character.SphereCollider);
-        }*/
-
         private Wave GetCurrentLevelWave()
         {
             if (currentIndexWave >= level.Waves.Count)
@@ -99,13 +89,6 @@ namespace Core
             return result.Level;
         }
         
-        private FireZone GetCurrentFireZone(int currentCollider)
-        {
-            var levelsInfoCount = levelsConfig.LevelsInfo.Count;
-            var result = levelsConfig.LevelsInfo[currentCollider % levelsInfoCount];
-            return result.FireZone;
-        }
-
         /*private void CharacterDrop()
         {
             character.Position = Vector3.MoveTowards(character.Position, Tower.TowerDestroy.Ground.position,

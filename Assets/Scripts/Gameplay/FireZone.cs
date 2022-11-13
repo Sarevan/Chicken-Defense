@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Gameplay.Character_hero_;
+using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
@@ -15,10 +17,11 @@ namespace Gameplay
             DrawCircle(steps, radius);
             RadiusDetector();
         }
-
-        public void Setup(SphereCollider detector)
+        
+        [Inject]
+        public void Setup(Character sphereCollider)
         {
-            sphereCollider = detector;
+            this.sphereCollider = sphereCollider.SphereCollider;
         }
         
         private void RadiusDetector()

@@ -10,9 +10,8 @@ namespace Configs
     public class LevelConfigInfo
     {
         [SerializeField] private Level level;
-        [SerializeField] private FireZone fireZone;
         
         public Level Level => level;
-        public FireZone FireZone => fireZone;
+       
     }
 }
