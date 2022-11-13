@@ -1,6 +1,6 @@
 ﻿using Gameplay;
 using Gameplay.Character_hero_;
-using Gameplay.Tower;
+using Gameplay.Tower_base_;
 using UnityEngine;
 using Zenject;
 
@@ -20,21 +20,9 @@ namespace Core
 
         public override void InstallBindings()
         {
-            BindTower();
             BindCharacter();
+            BindTower();
             BindFireZone();
-        }
-
-        private void BindTower()
-        {
-            Tower towerPrefab = Container
-                .InstantiatePrefabForComponent<Tower>(tower, towerSpawnPosition.position, Quaternion.identity,
-                    null);
-
-            Container
-                .Bind<Tower>()
-                .FromInstance(towerPrefab)
-                .AsSingle();
         }
 
         private void BindCharacter()
@@ -47,6 +35,18 @@ namespace Core
             Container
                 .Bind<Character>()
                 .FromInstance(characterPrefab)
+                .AsSingle();
+        }
+
+        private void BindTower()
+        {
+            Tower towerPrefab = Container
+                .InstantiatePrefabForComponent<Tower>(tower, towerSpawnPosition.position, Quaternion.identity,
+                    null);
+
+            Container
+                .Bind<Tower>()
+                .FromInstance(towerPrefab)
                 .AsSingle();
         }
 

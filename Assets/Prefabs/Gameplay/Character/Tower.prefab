@@ -20126,7 +20126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85b40f58f854c78b43324e824edb63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 8935032457919258989}
   towerDestroy: {fileID: 1546521184160599664}
   towerHealth: {fileID: 1220674135317932182}
 --- !u!114 &1220674135317932182
@@ -20141,8 +20140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c560f0351db4a3a82b8a780d0ab763a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 100
-  max: 100
+  current: 20
+  max: 20
   dustFX: {fileID: 100000, guid: 29f0684e02f59b748a25dcff64a2cb13, type: 3}
 --- !u!114 &1546521184160599664
 MonoBehaviour:
@@ -20160,8 +20159,6 @@ MonoBehaviour:
   tower: {fileID: 3862895220048631311}
   towerExplosion: {fileID: 6996723728005421566}
   explosionFx: {fileID: 1892078723244562, guid: 46c83df99b12cdc4a880a7d62beaa83c, type: 3}
-  ground: {fileID: 3948517235348198609, guid: ca8c39aeeb912e4459d433c580631c15, type: 3}
-  dropSpeed: 5
 --- !u!1 &8142423607962434687
 GameObject:
   m_ObjectHideFlags: 0

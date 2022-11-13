@@ -9970,8 +9970,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987c577b6c8047beb124c4648897aa73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 6061262303147085612}
   sphereCollider: {fileID: -6215479036432181093}
+  characterOnGround: {fileID: 3948517235348198609, guid: ca8c39aeeb912e4459d433c580631c15, type: 3}
+  dropSpeed: 4
 --- !u!114 &9161190201340863127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10012,7 +10013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702d4cad2eb94b088868b53904029fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 8551584619974353751}
   weapon: {fileID: 4318650576535362410}
   enemyDetector: {fileID: 5179450415500103135}
   animator: {fileID: 9161190201340863127}

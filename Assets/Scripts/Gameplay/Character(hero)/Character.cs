@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Character_hero_
 {
@@ -7,6 +6,14 @@ namespace Gameplay.Character_hero_
     {
         [SerializeField] private SphereCollider sphereCollider;
         
+        [SerializeField] private Transform characterOnGround;
+        [SerializeField] private float dropSpeed;
+        
         public SphereCollider SphereCollider => sphereCollider;
+
+        public void CharacterDrop()
+        {
+            transform.position = Vector3.MoveTowards(transform.position, characterOnGround.position, dropSpeed);
+        }
     }
 }

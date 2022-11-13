@@ -2,7 +2,7 @@
 using Logic;
 using UnityEngine;
 
-namespace Gameplay.Tower
+namespace Gameplay.Tower_base_
 {
     public class TowerHealth : MonoBehaviour, IHealth
     {

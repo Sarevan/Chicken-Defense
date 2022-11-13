@@ -1,6 +1,5 @@
 ﻿using Configs;
 using Gameplay;
-using Gameplay.Tower;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -9,7 +8,6 @@ namespace Core
     public class Game
     {
         private LevelsConfig levelsConfig;
-        /*private Character character;*/
 
         private Level level;
 
@@ -89,11 +87,6 @@ namespace Core
             return result.Level;
         }
         
-        /*private void CharacterDrop()
-        {
-            character.Position = Vector3.MoveTowards(character.Position, Tower.TowerDestroy.Ground.position,
-                Tower.TowerDestroy.DropSpeed);
-            tower.TowerDestroy.Destroy -= CharacterDrop;
-        }*/
+      
     }
 }

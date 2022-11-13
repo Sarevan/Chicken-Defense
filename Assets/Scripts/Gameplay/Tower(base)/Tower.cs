@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using Zenject;
 
-namespace Gameplay.Tower
+namespace Gameplay.Tower_base_
 {
     public class Tower : MonoBehaviour
     {

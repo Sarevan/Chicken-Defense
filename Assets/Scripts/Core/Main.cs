@@ -1,6 +1,6 @@
 ﻿using Configs;
 using Gameplay.Character_hero_;
-using Gameplay.Tower;
+using Gameplay.Tower_base_;
 using UI.ScreensGeneration;
 using UI.ScreensGeneration.Screens;
 using UnityEngine;
