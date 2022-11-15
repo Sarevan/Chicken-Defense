@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allConfigs: {fileID: 11400000, guid: 7be346b074290554b811a002793bc482, type: 2}
+  levelsConfig: {fileID: 11400000, guid: 21ecfe59890c4ef488fc15bc79251276, type: 2}
