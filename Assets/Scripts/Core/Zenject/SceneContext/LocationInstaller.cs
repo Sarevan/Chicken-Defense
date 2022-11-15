@@ -4,7 +4,7 @@ using Gameplay.Tower_base_;
 using UnityEngine;
 using Zenject;
 
-namespace Core
+namespace Core.Zenject.SceneContext
 {
     public class LocationInstaller : MonoInstaller
     {
