@@ -10013,6 +10013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702d4cad2eb94b088868b53904029fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 8551584619974353751}
   weapon: {fileID: 4318650576535362410}
   enemyDetector: {fileID: 5179450415500103135}
   animator: {fileID: 9161190201340863127}

@@ -11,21 +11,14 @@ namespace Gameplay.Character_hero_
 {
     public class CharacterAttack : MonoBehaviour
     {
+        [SerializeField] private Character character;
         [SerializeField] private Weapon weapon;
         [SerializeField] private TriggerDetector enemyDetector;
         [SerializeField] private CharacterAnimator animator;
 
         [SerializeField] private float timeAttack = 0.1f;
-
-        private LazyInject<Character> character;
         private bool isAttack;
-
-        [Inject]
-        public void Setup(LazyInject<Character> character)
-        {
-            this.character = character;
-        }
-
+        
         private void Update()
         {
             if (DetectedEnemiesInRadiusDamage(out var enemiesInRadiusDamage))
@@ -97,9 +90,9 @@ namespace Gameplay.Character_hero_
 
         private void LookAtEnemy(Transform enemyPosition)
         {
-            Vector3 relative = character.Value.transform.InverseTransformPoint(enemyPosition.position);
+            Vector3 relative = character.transform.InverseTransformPoint(enemyPosition.position);
             float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
-            character.Value.transform.Rotate(0, angle, 0);
+            character.transform.Rotate(0, angle, 0);
         }
 
         private void EnemyEnterOnFireZone(Collider enemy)

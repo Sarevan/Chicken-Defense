@@ -17,7 +17,7 @@ namespace Core
         [SerializeField] private Transform characterSpawnPosition;
         [SerializeField] private Transform fireZoneSpawnPosition;
         [SerializeField] private Transform towerSpawnPosition;
-
+        
         public override void InstallBindings()
         {
             BindCharacter();
