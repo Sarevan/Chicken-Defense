@@ -17,7 +17,7 @@ namespace Core
 
         //transfer this setup in different place some later 
         [Inject]
-        public void Setup(Tower tower)
+        public void Setup( Tower tower)
         {
             this.tower = tower;
         }

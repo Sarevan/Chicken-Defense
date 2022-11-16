@@ -80,6 +80,6 @@ MonoBehaviour:
   character: {fileID: 7662694691229004342, guid: 81fd11fad9a8bcf4d8a11dc7e482113a, type: 3}
   fireZone: {fileID: 1517931169305614803, guid: 63b87efb2d0a8984a9cc2f498aada9ab, type: 3}
   tower: {fileID: 8121199602288081879, guid: f5e860c7665e6c9478078f35caf14726, type: 3}
-  characterSpawnPosition: {fileID: 5296434698086949111, guid: 1a50e0d7c4ae6ca46bc83c12ec0db036, type: 3}
-  fireZoneSpawnPosition: {fileID: 8067720350290333343, guid: 638e1943afeda9f4ca2c6274e1d69305, type: 3}
-  towerSpawnPosition: {fileID: 3948517235348198609, guid: ca8c39aeeb912e4459d433c580631c15, type: 3}
+  characterSpawnPosition: {fileID: 0}
+  fireZoneSpawnPosition: {fileID: 0}
+  towerSpawnPosition: {fileID: 0}

@@ -9,7 +9,7 @@ namespace Core.Zenject.ProjectContext
         [SerializeField]
         [InjectOptional]
         private AllConfigs allConfigs;
-        
+
         [SerializeField]
         [InjectOptional]
         private LevelsConfig levelsConfig;
@@ -17,13 +17,15 @@ namespace Core.Zenject.ProjectContext
         [SerializeField]
         [InjectOptional]
         private LevelConfigInfo[] levelConfigInfo;
+
         public override void InstallBindings()
         {
-            if (allConfigs == null)
+            if (allConfigs == null && levelsConfig == null && levelConfigInfo == null)
             {
                 Debug.LogWarning("No config");
                 return;
             }
+
             Container.Bind(allConfigs.GetType(), typeof(AllConfigs)).FromInstance(allConfigs);
             Container.Bind(levelsConfig.GetType(), typeof(LevelsConfig)).FromInstance(levelsConfig);
             Container.Bind(levelConfigInfo.GetType(), typeof(LevelConfigInfo[])).FromInstance(levelConfigInfo);

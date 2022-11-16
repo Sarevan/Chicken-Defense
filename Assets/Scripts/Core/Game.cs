@@ -16,6 +16,7 @@ namespace Core
         private float totalTime;
         private bool isEndWaves;
         
+        
         public Game(LevelsConfig levelsConfig)
         {
             this.levelsConfig = levelsConfig;
@@ -86,7 +87,5 @@ namespace Core
             var result = levelsConfig.LevelsInfo[currentLevel % levelsInfoCount];
             return result.Level;
         }
-        
-      
     }
 }

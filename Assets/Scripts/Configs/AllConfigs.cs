@@ -6,7 +6,7 @@ namespace Configs
    [CreateAssetMenu(fileName = nameof(AllConfigs),menuName = "Configs/" + nameof(AllConfigs), order = 0)]
    public class AllConfigs : ScriptableObject
    {
-      private LevelsConfig levelsConfig;
+     private LevelsConfig levelsConfig;
 
       [Inject]
       public void Setup(LevelsConfig levelsConfig)
