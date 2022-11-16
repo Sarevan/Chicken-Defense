@@ -1,5 +1,6 @@
 ﻿using Gameplay;
 using Gameplay.Character_hero_;
+using Gameplay.Loot;
 using Gameplay.Tower_base_;
 using UnityEngine;
 using Zenject;
@@ -8,15 +9,16 @@ namespace Core.Zenject.SceneContext
 {
     public class LocationInstaller : MonoInstaller
     {
-        [Header("Prefabs objects")]
+        [Header("Scene objects")]
         [SerializeField] private GameObject character;
         [SerializeField] private GameObject fireZone;
         [SerializeField] private GameObject tower;
 
         [Header("Spawn positions")]
-        [SerializeField] private Transform characterSpawnPosition;
-        [SerializeField] private Transform fireZoneSpawnPosition;
-        [SerializeField] private Transform towerSpawnPosition;
+        [SerializeField] private Transform characterSpawn;
+        [SerializeField] private Transform fireZoneSpawn;
+        [SerializeField] private Transform towerSpawn;
+        [SerializeField] private Transform lootSpawn;
         
         public override void InstallBindings()
         {
@@ -28,7 +30,7 @@ namespace Core.Zenject.SceneContext
         private void BindCharacter()
         {
             Character characterPrefab = Container
-                .InstantiatePrefabForComponent<Character>(character, characterSpawnPosition.position,
+                .InstantiatePrefabForComponent<Character>(character, characterSpawn.position,
                     Quaternion.identity,
                     null);
 
@@ -37,11 +39,11 @@ namespace Core.Zenject.SceneContext
                 .FromInstance(characterPrefab)
                 .AsSingle();
         }
-
+        
         private void BindTower()
         {
             Tower towerPrefab = Container
-                .InstantiatePrefabForComponent<Tower>(tower, towerSpawnPosition.position, Quaternion.identity,
+                .InstantiatePrefabForComponent<Tower>(tower, towerSpawn.position, Quaternion.identity,
                     null);
 
             Container
@@ -53,7 +55,7 @@ namespace Core.Zenject.SceneContext
         private void BindFireZone()
         {
             FireZone fireZonePrefab = Container
-                .InstantiatePrefabForComponent<FireZone>(fireZone, fireZoneSpawnPosition.position,
+                .InstantiatePrefabForComponent<FireZone>(fireZone, fireZoneSpawn.position,
                     Quaternion.identity,
                     null);
 

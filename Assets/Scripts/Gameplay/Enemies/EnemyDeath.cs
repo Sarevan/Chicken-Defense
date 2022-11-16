@@ -11,7 +11,7 @@ namespace Gameplay.Enemies
         [SerializeField] private EnemyAnimator animator;
 
         [SerializeField] private GameObject deathFx;
-        [SerializeField] private LootElements loot;
+        [SerializeField] private LootFollow loot;
 
         // To get dependency from loot and take then method "DropCoin"
         public event Action Happened;

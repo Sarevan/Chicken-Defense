@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 using Gameplay.Enemies;
+using Gameplay.Loot;
 using UnityEngine;
+using Zenject;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 using Timer = Utils.Timer;
@@ -40,7 +42,7 @@ namespace Gameplay
         public float Duration => duration;
 
         public bool IsSetup => isSetup;
-
+        
         public void Setup(Transform characterTransform)
         {
             this.characterTransform = characterTransform;
@@ -101,6 +103,7 @@ namespace Gameplay
                 Object.Instantiate(portalEnemyFX,pos + Vector3.up,rotation);
                 
                 EnemyMove enemy = Object.Instantiate(randomEnemy, pos, rotation);
+                
                 enemy.Setup(characterTransform);
                 
                 EnemyLookOnHero(enemy);
