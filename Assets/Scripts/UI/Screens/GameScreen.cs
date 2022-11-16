@@ -29,7 +29,7 @@ namespace UI.ScreensGeneration.Screens
 
         public void UpdatedHealthValue()
         {
-            healthBar.TextHealthValue.SetText($"{towerHealth.Max}/{towerHealth.Current}");
+            healthBar.TextHealthValue.SetText($"{towerHealth.Current}/{towerHealth.Max}");
         }
 
         private void Awake()

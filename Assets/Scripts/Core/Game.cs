@@ -1,5 +1,6 @@
 ﻿using Configs;
 using Gameplay;
+using Gameplay.Tower_base_;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -16,7 +17,6 @@ namespace Core
         private float totalTime;
         private bool isEndWaves;
         
-        
         public Game(LevelsConfig levelsConfig)
         {
             this.levelsConfig = levelsConfig;
@@ -27,8 +27,23 @@ namespace Core
 
             SetupLevel(levelsConfig.LevelsInfo.Count);
         }
-
+        
         public void Update()
+        {
+            WavesSpawner();
+        }
+
+        private void SetupLevel(int currentLevel)
+        {
+            LevelSpawn(currentLevel);
+        }
+
+        private void LevelSpawn(int currentLevel)
+        {
+            level = Object.Instantiate(GetCurrentLevel(currentLevel));
+        }
+        
+        private void WavesSpawner()
         {
             if (isEndWaves)
             {
@@ -51,16 +66,6 @@ namespace Core
             }
         }
 
-        private void SetupLevel(int currentLevel)
-        {
-            LevelSpawn(currentLevel);
-        }
-
-        private void LevelSpawn(int currentLevel)
-        {
-            level = Object.Instantiate(GetCurrentLevel(currentLevel));
-        }
-        
         private Wave GetCurrentLevelWave()
         {
             if (currentIndexWave >= level.Waves.Count)

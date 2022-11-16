@@ -13,14 +13,15 @@ namespace Core
         [SerializeField] private AllConfigs allConfigs;
 
         private Game game;
+        
         private Tower tower;
 
-        //transfer this setup in different place some later 
         [Inject]
-        public void Setup( Tower tower)
+        private void Setup(Tower tower)
         {
-            this.tower = tower;
+            this.tower = tower; 
         }
+        
         private void Start()
         {
             game = new Game(allConfigs.LevelsConfig);
