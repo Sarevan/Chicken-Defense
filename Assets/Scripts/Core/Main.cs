@@ -1,6 +1,5 @@
 ﻿using Configs;
 using Gameplay;
-using Gameplay.Character_hero_;
 using Gameplay.Tower_base_;
 using UI.ScreensGeneration;
 using UI.ScreensGeneration.Screens;
