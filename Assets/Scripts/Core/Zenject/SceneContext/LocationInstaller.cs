@@ -18,8 +18,7 @@ namespace Core.Zenject.SceneContext
         [SerializeField] private Transform characterSpawn;
         [SerializeField] private Transform fireZoneSpawn;
         [SerializeField] private Transform towerSpawn;
-        [SerializeField] private Transform lootSpawn;
-        
+
         public override void InstallBindings()
         {
             BindCharacter();

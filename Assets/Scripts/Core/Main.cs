@@ -10,16 +10,17 @@ namespace Core
 {
     public class Main : MonoBehaviour
     {
-        [SerializeField] private AllConfigs allConfigs;
+       [SerializeField] private AllConfigs allConfigs;
 
-        private Game game;
-        
-        private Tower tower;
+      private Tower tower;
+       
+       private Game game;
 
-        [Inject]
+
+       [Inject]
         private void Setup(Tower tower)
         {
-            this.tower = tower; 
+            this.tower = tower;
         }
         
         private void Start()

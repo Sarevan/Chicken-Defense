@@ -7,13 +7,8 @@ namespace Configs
     [CreateAssetMenu(fileName = nameof(LevelsConfig), menuName = "Configs/" + nameof(LevelsConfig), order = 0)]
     public class LevelsConfig : ScriptableObject
     {
-        private LevelConfigInfo[] levelsInfo;
-
-        [Inject]
-        public void Setup(LevelConfigInfo[] levelsInfo)
-        {
-            this.levelsInfo = levelsInfo;
-        }
+       [SerializeField] private LevelConfigInfo[] levelsInfo;
+       
 
         public IList<LevelConfigInfo> LevelsInfo => levelsInfo;
     }

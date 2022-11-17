@@ -9,8 +9,7 @@ namespace Configs
     public class LevelConfigInfo
     {
         [SerializeField] private Level level;
-        
+
         public Level Level => level;
-       
     }
 }
