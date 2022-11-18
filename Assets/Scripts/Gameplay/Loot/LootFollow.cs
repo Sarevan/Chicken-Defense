@@ -15,7 +15,7 @@ namespace Gameplay.Loot
         private Character target;
 
         Vector3 velocity = Vector3.zero;
-        private bool isFollowing = true;
+        private bool isFollowing = false;
 
         [Inject]
         private void Setup(Character target)
