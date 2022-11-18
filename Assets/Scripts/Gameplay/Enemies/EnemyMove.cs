@@ -1,4 +1,5 @@
 ﻿using System;
+using Gameplay.Collision;
 using UnityEngine;
 
 namespace Gameplay.Enemies
@@ -8,7 +9,7 @@ namespace Gameplay.Enemies
         [SerializeField] private float speed;
 
         [SerializeField] private EnemyAnimator animator;
-        [SerializeField] private EnemyAttackDetector detectorAttack;
+        [SerializeField] private EasyTriggerDetector detectorAttack;
 
         private Transform target;
 

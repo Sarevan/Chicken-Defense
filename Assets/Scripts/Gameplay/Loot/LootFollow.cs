@@ -2,6 +2,7 @@
 using UnityEngine;
 using DG.Tweening;
 using Gameplay.Character_hero_;
+using Gameplay.Collision;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -30,10 +31,12 @@ namespace Gameplay.Loot
                     Time.deltaTime * Random.Range(minModifier,maxModifier));
             }
         }
-
+        
         public void StartFollowing()
         {
             isFollowing = true;
         }
+
+        
     }
 }

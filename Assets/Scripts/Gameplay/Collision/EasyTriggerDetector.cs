@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Gameplay.Enemies
+namespace Gameplay.Collision
 {
-    public class EnemyAttackDetector : MonoBehaviour
+    public class EasyTriggerDetector : MonoBehaviour
     {
         [SerializeField] private LayerMask layerMask = -1;
         

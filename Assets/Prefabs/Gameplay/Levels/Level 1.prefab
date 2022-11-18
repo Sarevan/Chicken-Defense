@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4666201182080938893}
   - component: {fileID: 3449234114245641550}
   - component: {fileID: 8912255452502055462}
+  - component: {fileID: 209769706595435656}
+  - component: {fileID: 4832321844271304508}
   m_Layer: 10
   m_Name: Coin
   m_TagString: Untagged
@@ -58,12 +60,41 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3111477009593831893}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.16
   m_Height: 0.36
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &209769706595435656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111477009593831893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4298c2bbc09f41f2b3cd4d6c3ff1d46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+--- !u!114 &4832321844271304508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111477009593831893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7146a25fc64d4237aad5f445c80c2ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectorAttack: {fileID: 209769706595435656}
+  destroyObject: {fileID: 3111477009593831893}
 --- !u!1 &8696406864054440323
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +106,7 @@ GameObject:
   - component: {fileID: 6145418028273250286}
   - component: {fileID: 4802187813742621119}
   - component: {fileID: 3649429169700915093}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DropLoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

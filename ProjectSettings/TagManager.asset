@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Tower
   - Water
   - UI
   - Enemy
@@ -17,7 +17,7 @@ TagManager:
   - FireZone
   - Piece
   - Loot
-  - 
+  - Chicken
   - 
   - 
   - 
