@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
+using Gameplay.Character_hero_;
 using Gameplay.Enemies;
 using Gameplay.Loot;
+using Gameplay.Tower_base_;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -20,32 +22,28 @@ namespace Gameplay
         [SerializeField] private float timeOneIntervalSpawn; // время одного интервала
         [SerializeField] private int countSpawnEnemiesAtInterval; // число заспавненного противника на интервале
         [SerializeField] private List<EnemyMove> prefabsRandomEnemies; // сами противники в рандомном порядке 
+        [SerializeField] private int countSpawnRandomEnemies; // противники будут спавниться рандомно с различным интервалом времени
 
-        [SerializeField]
-        private int countSpawnRandomEnemies; // противники будут спавниться рандомно с различным интервалом времени
-
-        [SerializeField]
-        private List<GuaranteedSpawnEnemy> guaranteedSpawnEnemies; // противники которые 100% появятся в интервале (Бос)
-
-
+        [SerializeField] private List<GuaranteedSpawnEnemy> guaranteedSpawnEnemies; // противники которые 100% появятся в интервале (Бос)
+        
         [SerializeField] private float spawnRadius = 0.5f;
         [SerializeField] private Transform spawnPointPosition;
         [SerializeField] private GameObject portalEnemyFX;
-
-
+        
         private float startTime;
         private int indexLastItemOfInterval;
         private List<float> scheduledSpawnEnemies;
         private bool isSetup;
-        private Transform characterTransform;
+        private Tower tower;
 
         public float Duration => duration;
 
         public bool IsSetup => isSetup;
         
-        public void Setup(Transform characterTransform)
+        [Inject]
+        public void Setup(Tower tower)
         {
-            this.characterTransform = characterTransform;
+            this.tower = tower;
             isSetup = true;
             startTime = Time.time;
             ScheduleCreated();
@@ -101,10 +99,11 @@ namespace Gameplay
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center);
 
                 Object.Instantiate(portalEnemyFX,pos + Vector3.up,rotation);
+                /*diContainer.InstantiatePrefab(randomEnemy, pos, rotation,null);*/
                 
                 EnemyMove enemy = Object.Instantiate(randomEnemy, pos, rotation);
                 
-                enemy.Setup(characterTransform);
+                enemy.Setup(tower.transform);
                 
                 EnemyLookOnHero(enemy);
             }
@@ -112,7 +111,7 @@ namespace Gameplay
 
         private void EnemyLookOnHero(EnemyMove enemyMove)
         {
-            Vector3 relative = enemyMove.transform.InverseTransformPoint(characterTransform.position);
+            Vector3 relative = enemyMove.transform.InverseTransformPoint(tower.transform.position);
             float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
             enemyMove.transform.Rotate(0, angle, 0);
         }

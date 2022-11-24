@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
+using Gameplay.Character_hero_;
 using Gameplay.Loot;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Enemies
 {
@@ -11,11 +13,16 @@ namespace Gameplay.Enemies
         [SerializeField] private EnemyAnimator animator;
 
         [SerializeField] private GameObject deathFx;
-        [SerializeField] private LootFollow loot;
+        
+        private Character target;
+        private LootFollow coin;
 
-        // To get dependency from loot and take then method "DropCoin"
-        public event Action Happened;
-
+        /*[Inject]
+        private void Setup(Character target,LootFollow coin)
+        {
+            this.target = target;
+            this.coin = coin;
+        }*/
         private void Start()
         {
             health.HealthChanged += HealthChanged;
@@ -33,8 +40,6 @@ namespace Gameplay.Enemies
 
             animator.PlayDeath();
             
-            /*loot.DropCoin();*/
-
             StartCoroutine(DestroyTimer());
             SpawnDeathFx();
         }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Gameplay.Tower_base_;
 using UI.ScreensGeneration;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
@@ -8,9 +10,16 @@ namespace Gameplay
     {
         //level = 30 waves;
         [SerializeField] private List<Wave> waves;
-        [SerializeField] private Transform towerAttackPosition;
+
+        private Tower tower;
         
         public List<Wave> Waves => waves;
-        public Transform TowerAttackPosition => towerAttackPosition;
+        public Tower Tower => tower;
+
+        [Inject]
+        private void Setup(Tower tower)
+        {
+            this.tower = tower;
+        }
     }
 }

@@ -157,4 +157,3 @@ MonoBehaviour:
   health: {fileID: 3868216388485059642}
   animator: {fileID: 6425573254459030481}
   deathFx: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
-  loot: {fileID: 3090237516127093713, guid: ef6fedecb03f43c489a053c60498a886, type: 3}

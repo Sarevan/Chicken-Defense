@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using Gameplay.Character_hero_;
 using Gameplay.Collision;
+using Gameplay.Enemies;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -25,6 +26,7 @@ namespace Gameplay.Loot
         }
         private void Update()
         {
+            Setup(target);
             if(isFollowing)
             {
                 transform.position = Vector3.SmoothDamp(transform.position, target.transform.position,ref velocity,

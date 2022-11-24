@@ -55,7 +55,7 @@ namespace Core
             {
                 if (currentWave.IsSetup != true)
                 {
-                    currentWave.Setup(level.TowerAttackPosition);
+                    currentWave.Setup(level.Tower);
                 }
 
                 currentWave.Update();
@@ -68,10 +68,8 @@ namespace Core
 
         private Wave GetCurrentLevelWave()
         {
-            if (currentIndexWave >= level.Waves.Count)
-            {
+            if (CheckForRangeOutsideWaves()) 
                 return null;
-            }
 
             if (totalTime + level.Waves[currentIndexWave].Duration <= Time.time - startTime)
             {
@@ -84,6 +82,16 @@ namespace Core
             }
 
             return level.Waves[currentIndexWave];
+        }
+
+        private bool CheckForRangeOutsideWaves()
+        {
+            if (currentIndexWave >= level.Waves.Count)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private Level GetCurrentLevel(int currentLevel)

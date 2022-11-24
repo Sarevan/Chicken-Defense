@@ -18,13 +18,30 @@ namespace Core.Zenject.SceneContext
         [SerializeField] private Transform characterSpawn;
         [SerializeField] private Transform fireZoneSpawn;
         [SerializeField] private Transform towerSpawn;
-
+        
+        /*[Header("Spawn loots")]
+        [SerializeField] private GameObject coin;*/
+        
         public override void InstallBindings()
         {
             BindCharacter();
             BindTower();
             BindFireZone();
+            /*BindCoins();*/
         }
+
+        /*private void BindCoins()
+        {
+            LootFollow coinPrefab = Container
+                .InstantiatePrefabForComponent<LootFollow>(coin, transform.position,
+                    Quaternion.identity,
+                    null);
+            
+            Container
+                .Bind<LootFollow>()
+                .FromInstance(coinPrefab)
+                .AsSingle();
+        }*/
 
         private void BindCharacter()
         {
