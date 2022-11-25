@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4
   animator: {fileID: 6425573254459030481}
-  enemyMove: {fileID: 3123059522127284389}
+  enemy: {fileID: 3123059522127284389}
 --- !u!114 &3868216388485059642
 MonoBehaviour:
   m_ObjectHideFlags: 0

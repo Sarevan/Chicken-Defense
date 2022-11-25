@@ -1,6 +1,5 @@
 ﻿using Gameplay;
 using Gameplay.Character_hero_;
-using Gameplay.Loot;
 using Gameplay.Tower_base_;
 using UnityEngine;
 using Zenject;
@@ -19,30 +18,13 @@ namespace Core.Zenject.SceneContext
         [SerializeField] private Transform fireZoneSpawn;
         [SerializeField] private Transform towerSpawn;
         
-        /*[Header("Spawn loots")]
-        [SerializeField] private GameObject coin;*/
-        
         public override void InstallBindings()
         {
             BindCharacter();
             BindTower();
             BindFireZone();
-            /*BindCoins();*/
         }
-
-        /*private void BindCoins()
-        {
-            LootFollow coinPrefab = Container
-                .InstantiatePrefabForComponent<LootFollow>(coin, transform.position,
-                    Quaternion.identity,
-                    null);
-            
-            Container
-                .Bind<LootFollow>()
-                .FromInstance(coinPrefab)
-                .AsSingle();
-        }*/
-
+        
         private void BindCharacter()
         {
             Character characterPrefab = Container

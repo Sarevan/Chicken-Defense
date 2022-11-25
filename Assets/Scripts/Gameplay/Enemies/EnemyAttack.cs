@@ -1,5 +1,4 @@
-﻿using System;
-using Gameplay.Tower_base_;
+﻿using Gameplay.Tower_base_;
 using UnityEngine;
 
 namespace Gameplay.Enemies
@@ -9,7 +8,7 @@ namespace Gameplay.Enemies
         [SerializeField] private float damage;
 
         [SerializeField] private EnemyAnimator animator;
-        [SerializeField] private EnemyMove enemyMove;
+        [SerializeField] private Enemy enemy;
 
         private EnemyHealth enemyHealth;
         private bool enemyOnAttackPosition;
@@ -18,7 +17,7 @@ namespace Gameplay.Enemies
         {
             if (!enemyOnAttackPosition)
             {
-                enemyMove.EnemyMoveToHero();
+                enemy.EnemyMoveToHero();
             }
             else
             {
@@ -28,12 +27,12 @@ namespace Gameplay.Enemies
 
         private void OnEnable()
         {
-            enemyMove.EnemyInHeroAttackZone += Attack;
+            enemy.EnemyInHeroAttackZone += Attack;
         }
 
         private void OnDisable()
         {
-            enemyMove.EnemyInHeroAttackZone -= Attack;
+            enemy.EnemyInHeroAttackZone -= Attack;
         }
 
         private void OnTriggerEnter(Collider characterCollider)
@@ -44,7 +43,7 @@ namespace Gameplay.Enemies
             }
         }
 
-        public void Attack()
+        private void Attack()
         {
             enemyOnAttackPosition = true;
             animator.PlayAttack();

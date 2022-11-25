@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace Gameplay.Enemies
 {
-    public class EnemyMove : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
         [SerializeField] private float speed;
-
         [SerializeField] private EnemyAnimator animator;
         [SerializeField] private EasyTriggerDetector detectorAttack;
 

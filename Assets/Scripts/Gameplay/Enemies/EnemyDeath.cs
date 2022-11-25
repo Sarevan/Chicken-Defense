@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Gameplay.Character_hero_;
 using Gameplay.Loot;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Enemies
 {
@@ -17,12 +15,6 @@ namespace Gameplay.Enemies
         private Character target;
         private LootFollow coin;
 
-        /*[Inject]
-        private void Setup(Character target,LootFollow coin)
-        {
-            this.target = target;
-            this.coin = coin;
-        }*/
         private void Start()
         {
             health.HealthChanged += HealthChanged;

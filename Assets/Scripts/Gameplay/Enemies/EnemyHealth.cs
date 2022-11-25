@@ -16,7 +16,6 @@ namespace Gameplay.Enemies
         public float Current { get => current; set => current = value; }
         public float Max { get => max; set => max = value; }
         
-        
         public void TakeDamage(float damage)
         {
             Current -= damage;

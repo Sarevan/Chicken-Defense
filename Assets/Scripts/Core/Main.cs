@@ -1,5 +1,4 @@
 ﻿using Configs;
-using Gameplay.Character_hero_;
 using Gameplay.Tower_base_;
 using UI.ScreensGeneration;
 using UI.ScreensGeneration.Screens;
@@ -10,19 +9,18 @@ namespace Core
 {
     public class Main : MonoBehaviour
     {
-       [SerializeField] private AllConfigs allConfigs;
+        [SerializeField] private AllConfigs allConfigs;
 
-      private Tower tower;
-       
-       private Game game;
+        private Tower tower;
+        
+        private Game game;
 
-
-       [Inject]
+        [Inject]
         private void Setup(Tower tower)
         {
             this.tower = tower;
         }
-        
+
         private void Start()
         {
             game = new Game(allConfigs.LevelsConfig);
@@ -36,7 +34,7 @@ namespace Core
 
         private void GoToMenu()
         {
-           GameScreen(); 
+            GameScreen();
         }
 
         private void GameScreen()

@@ -11,11 +11,8 @@ namespace Gameplay.Shooting.Bullets
         [SerializeField] private float bulletLiveTime = 2;
         [SerializeField] private GameObject trailBulletEffect;
 
-        [ShowNonSerializedField]
-        private Transform target;
-
-       
-
+        [ShowNonSerializedField] private Transform target;
+        
         private bool targetInFireZone;
 
         private void Awake()
@@ -52,7 +49,6 @@ namespace Gameplay.Shooting.Bullets
             Instantiate(trailBulletEffect, transform.position, transform.rotation);
         }
         
-
         private void OnTriggerEnter(Collider enemyCollider)
         {
             if (enemyCollider.TryGetComponent(out Enemies.EnemyHealth enemy))

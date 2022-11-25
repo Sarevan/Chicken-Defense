@@ -1,9 +1,5 @@
-﻿using System;
-using UnityEngine;
-using DG.Tweening;
+﻿using UnityEngine;
 using Gameplay.Character_hero_;
-using Gameplay.Collision;
-using Gameplay.Enemies;
 using Zenject;
 using Random = UnityEngine.Random;
 

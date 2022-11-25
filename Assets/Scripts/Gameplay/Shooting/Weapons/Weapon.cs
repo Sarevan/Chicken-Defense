@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Gameplay.Shooting.Bullets;
+﻿using Gameplay.Shooting.Bullets;
 using UnityEngine;
 
 namespace Gameplay.Shooting.Weapons

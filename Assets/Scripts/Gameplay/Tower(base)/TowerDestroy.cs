@@ -1,5 +1,4 @@
-﻿using System;
-using Gameplay.Character_hero_;
+﻿using Gameplay.Character_hero_;
 using UnityEngine;
 using Zenject;
 

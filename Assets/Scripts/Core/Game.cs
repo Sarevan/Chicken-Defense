@@ -1,6 +1,5 @@
 ﻿using Configs;
 using Gameplay;
-using Gameplay.Tower_base_;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -9,7 +8,6 @@ namespace Core
     public class Game
     {
         private LevelsConfig levelsConfig;
-
         private Level level;
 
         private int currentIndexWave;

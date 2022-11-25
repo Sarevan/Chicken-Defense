@@ -5,7 +5,6 @@ using Gameplay.Collision;
 using Gameplay.Enemies;
 using Gameplay.Shooting.Weapons;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Character_hero_
 {
@@ -45,17 +44,17 @@ namespace Gameplay.Character_hero_
             enemyDetector.TriggerEnter -= EnemyEnterOnFireZone;
         }
 
-        private EnemyMove SelectedEnemyToAttack(List<EnemyMove> detectedEnemiesInRadiusDamage)
+        private Enemy SelectedEnemyToAttack(List<Enemy> detectedEnemiesInRadiusDamage)
         {
-            EnemyMove target = detectedEnemiesInRadiusDamage
+            Enemy target = detectedEnemiesInRadiusDamage
                 .Aggregate((enemy, nextEnemy) =>
                     GetDistanceFromEnemy(enemy) < GetDistanceFromEnemy(nextEnemy) ? enemy : nextEnemy);
             return target;
         }
 
-        private bool DetectedEnemiesInRadiusDamage(out List<EnemyMove> detectedEnemiesInRadiusDamage)
+        private bool DetectedEnemiesInRadiusDamage(out List<Enemy> detectedEnemiesInRadiusDamage)
         {
-            detectedEnemiesInRadiusDamage = enemyDetector.GetComponentsByColliders<EnemyMove>();
+            detectedEnemiesInRadiusDamage = enemyDetector.GetComponentsByColliders<Enemy>();
 
             if (detectedEnemiesInRadiusDamage.Count == 0)
             {
@@ -65,12 +64,12 @@ namespace Gameplay.Character_hero_
             return false;
         }
 
-        private float GetDistanceFromEnemy(EnemyMove enemyMove)
+        private float GetDistanceFromEnemy(Enemy enemy)
         {
-            return Vector3.Distance(enemyMove.transform.position, transform.position);
+            return Vector3.Distance(enemy.transform.position, transform.position);
         }
 
-        private void Shoot(EnemyMove target)
+        private void Shoot(Enemy target)
         {
             if (target != null && !isAttack)
             {
@@ -97,9 +96,7 @@ namespace Gameplay.Character_hero_
 
         private void EnemyEnterOnFireZone(Collider enemy)
         {
-            //кэшиование переменной
-            // todo сделать кэширование
-            //enemyDetector.GetComponentsByColliders<Enemy>()
+          
         }
     }
 }
