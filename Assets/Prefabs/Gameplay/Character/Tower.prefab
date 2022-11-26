@@ -9480,7 +9480,9 @@ GameObject:
   - component: {fileID: 6096448571267799527}
   - component: {fileID: 8548512422101681072}
   - component: {fileID: 2797475988471730002}
-  m_Layer: 0
+  - component: {fileID: 3930867822604921083}
+  - component: {fileID: 3704976403032053391}
+  m_Layer: 3
   m_Name: chicken_coop_Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9566,6 +9568,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.68, z: 0.61}
   m_Center: {x: 0.03, y: 0.31, z: 0.85}
+--- !u!114 &3930867822604921083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862895220048631311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c560f0351db4a3a82b8a780d0ab763a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 40
+  max: 40
+  dustFX: {fileID: 100000, guid: 29f0684e02f59b748a25dcff64a2cb13, type: 3}
+--- !u!114 &3704976403032053391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862895220048631311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b7f03d2cbe43318fd83f48270fc712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 3930867822604921083}
+  tower: {fileID: 8121199602288081879}
+  towerExplosion: {fileID: 6996723728005421566}
+  explosionFx: {fileID: 1892078723244562, guid: 46c83df99b12cdc4a880a7d62beaa83c, type: 3}
 --- !u!1 &3896450367592592164
 GameObject:
   m_ObjectHideFlags: 0
@@ -20140,8 +20173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c560f0351db4a3a82b8a780d0ab763a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 20
-  max: 20
+  current: 40
+  max: 40
   dustFX: {fileID: 100000, guid: 29f0684e02f59b748a25dcff64a2cb13, type: 3}
 --- !u!114 &1546521184160599664
 MonoBehaviour:
