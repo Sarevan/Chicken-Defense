@@ -96,7 +96,6 @@ namespace Gameplay.Character_hero_
 
         private void EnemyEnterOnFireZone(Collider enemy)
         {
-          
         }
     }
 }

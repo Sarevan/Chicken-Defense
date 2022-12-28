@@ -7,14 +7,13 @@ namespace UI.ScreensGeneration.Screens
 {
     public class GameScreen : BaseScreen
     {
+        [SerializeField] private HealthBar healthBar;
         [SerializeField] private GameObject attackTab;
         [SerializeField] private GameObject protectedTab;
         [SerializeField] private GameObject experienceTab;
         [SerializeField] private Button attackTabButton;
         [SerializeField] private Button protectedTabButton;
         [SerializeField] private Button experienceTabButton;
-
-        [SerializeField] private HealthBar healthBar;
 
         private TowerHealth towerHealth;
         private GameObject[] tabs;
@@ -25,11 +24,6 @@ namespace UI.ScreensGeneration.Screens
 
             towerHealth.MaxHealthBarChanged += ChangedMaxHealthBar;
             towerHealth.CurrentHealthBarChanged += ChangedCurrentHealthBar;
-        }
-
-        public void UpdatedHealthValue()
-        {
-            healthBar.TextHealthValue.SetText($"{towerHealth.Current}/{towerHealth.Max}");
         }
 
         private void Awake()
@@ -56,6 +50,11 @@ namespace UI.ScreensGeneration.Screens
                 towerHealth.MaxHealthBarChanged -= ChangedMaxHealthBar;
                 towerHealth.CurrentHealthBarChanged -= ChangedCurrentHealthBar;
             }
+        }
+
+        public void UpdatedHealthValue()
+        {
+            healthBar.TextHealthValue.SetText($"{towerHealth.Current}/{towerHealth.Max}");
         }
 
         private void AttackTabButtonOnClick()

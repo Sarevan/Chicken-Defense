@@ -1,5 +1,4 @@
 ﻿using System;
-using Gameplay.Loot;
 using Logic;
 using UnityEngine;
 

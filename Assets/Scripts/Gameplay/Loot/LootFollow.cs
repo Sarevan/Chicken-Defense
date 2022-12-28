@@ -29,12 +29,5 @@ namespace Gameplay.Loot
                     Time.deltaTime * Random.Range(minModifier,maxModifier));
             }
         }
-        
-        public void StartFollowing()
-        {
-            isFollowing = true;
-        }
-
-        
     }
 }

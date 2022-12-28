@@ -11,14 +11,9 @@ namespace Gameplay.Shooting.Bullets
         [SerializeField] private float bulletLiveTime = 2;
         [SerializeField] private GameObject trailBulletEffect;
 
-        [ShowNonSerializedField] private Transform target;
+        private Transform target;
         
         private bool targetInFireZone;
-
-        private void Awake()
-        {
-            Destroy(gameObject, bulletLiveTime);
-        }
 
         public void Setup(Transform enemyPosition)
         {
@@ -26,6 +21,11 @@ namespace Gameplay.Shooting.Bullets
             target = enemyPosition;
             Vector3 direction = transform.position - target.position;
             transform.forward = direction.normalized;
+        }
+
+        private void Awake()
+        {
+            Destroy(gameObject, bulletLiveTime);
         }
 
         private void Update()
@@ -44,17 +44,17 @@ namespace Gameplay.Shooting.Bullets
             }
         }
 
-        private void HitTarget()
-        {
-            Instantiate(trailBulletEffect, transform.position, transform.rotation);
-        }
-        
         private void OnTriggerEnter(Collider enemyCollider)
         {
             if (enemyCollider.TryGetComponent(out Enemies.EnemyHealth enemy))
             {
                 enemy.TakeDamage(damage);
             }
+        }
+
+        private void HitTarget()
+        {
+            Instantiate(trailBulletEffect, transform.position, transform.rotation);
         }
     }
 }

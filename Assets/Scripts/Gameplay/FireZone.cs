@@ -11,19 +11,19 @@ namespace Gameplay
         [SerializeField] private LineRenderer circleRenderer;
 
         private SphereCollider sphereCollider;
-        
-        public void Start()
-        {
-            DrawCircle(steps, radius);
-            RadiusDetector();
-        }
-        
+
         [Inject]
         public void Setup(Character sphereCollider)
         {
             this.sphereCollider = sphereCollider.SphereCollider;
         }
-        
+
+        public void Start()
+        {
+            DrawCircle(steps, radius);
+            RadiusDetector();
+        }
+
         private void RadiusDetector()
         {
            radius =  sphereCollider.radius;

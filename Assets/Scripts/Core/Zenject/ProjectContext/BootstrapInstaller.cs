@@ -1,10 +1,8 @@
-﻿using Configs;
-using UnityEngine;
-using Zenject;
+﻿using Zenject;
 
 namespace Core.Zenject.ProjectContext
 {
-    public class BootstrapInstaller : MonoInstaller // Here official services registration 
+    public class BootstrapInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

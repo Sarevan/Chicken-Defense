@@ -8,7 +8,6 @@ namespace Configs
     {
        [SerializeField] private LevelConfigInfo[] levelsInfo;
        
-
         public IList<LevelConfigInfo> LevelsInfo => levelsInfo;
     }
 }

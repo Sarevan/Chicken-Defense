@@ -17,7 +17,6 @@ namespace Gameplay.Tower_base_
 
         public float Current { get => current; set => current = Mathf.Clamp(value,0,max); }
         public float Max {get => max; set => max = value;}
-
         
         private void Start()
         {
